@@ -40,9 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Institution.cs" />
     <Compile Include="Models\County.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="ShoutOut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

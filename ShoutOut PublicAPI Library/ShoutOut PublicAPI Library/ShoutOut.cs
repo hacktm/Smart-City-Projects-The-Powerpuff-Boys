@@ -121,6 +121,41 @@ namespace ShoutOut_PublicAPI_Library
             return ls;
         }
 
+        public async Task<List<Branch>> getCompanyBranchesAsync(string cui)
+        {
+            string url = getApiUrl("getCompanyBranches") + "&cui=" + cui;
+            string res = await executeCall(url);
+
+            if (res == "")
+                throw new KeyNotFoundException("CUI not found.");
+
+            List<Branch> ls = new List<Branch>();
+            return ls;
+        }
+
+        public async Task<List<Ticket>> getTicketsAsync(int branch)
+        {
+            string url = getApiUrl("getTickets") + "&branch=" + branch.ToString();
+            string res = await executeCall(url);
+
+            if (res == "")
+                throw new KeyNotFoundException("BranchID not found.");
+
+            List<Ticket> ls = new List<Ticket>();
+            return ls;
+        }
+
+        public async Task<Ticket> getTicketAsync(int ticketId)
+        {
+            string url = getApiUrl("getTicket") + "&ticket=" + ticketId.ToString();
+            string res = await executeCall(url);
+
+            if (res == "")
+                throw new KeyNotFoundException("TicketID not found.");
+
+            return new Ticket(0, Ticket.TicketType.Undefined, "", "", "", Ticket.TicketStatus.Opened, 0.0, 0.0);
+        }
+
         #endregion
 
     }

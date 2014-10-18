@@ -19,6 +19,9 @@ namespace ShoutOut_PublicAPI_Library.Models
         private int _CityID = 0;
         public int CityID { get { return _CityID; } }
 
+        private int _BranchID = 0;
+        public int BranchID { get { return _BranchID; } }
+
         #endregion
 
         #region Initialiser
@@ -28,11 +31,12 @@ namespace ShoutOut_PublicAPI_Library.Models
         
         }
 
-        internal Institution(int id, string name, int cityid)
+        internal Institution(int id, string name, int cityid, int branchid)
         {
             _ID = id;
             _Name = name;
             _CityID = cityid;
+            _BranchID = branchid;
         }
 
         #endregion
