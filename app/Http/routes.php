@@ -8,6 +8,12 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
         Route::get('register', 'AuthController@registerPerson');
     });
 
+    Route::group(['prefix' => 'company'], function ()
+    {
+        Route::get('token', 'AuthController@companyToken');
+        Route::get('register', 'AuthController@registerCompany');
+    });
+
     Route::group(['prefix' => 'search'], function ()
     {
         Route::get('branch', 'SearchController@branch');

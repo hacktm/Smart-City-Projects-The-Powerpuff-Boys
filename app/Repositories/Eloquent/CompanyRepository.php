@@ -1,8 +1,9 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
 use SpreadOut\Company;
+use SpreadOut\Repositories\CompanyContract;
 
-class CompanyRepository extends AbstractRepository {
+class CompanyRepository extends AbstractRepository implements CompanyContract {
 
     /**
      * @param Company $model

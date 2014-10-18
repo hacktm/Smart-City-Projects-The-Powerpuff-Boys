@@ -22,6 +22,7 @@ class CreateCompanyTable extends Migration {
             $table->string('cui')->unique();
             $table->boolean('active');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('cities');
         });
 	}
 
@@ -35,6 +36,7 @@ class CreateCompanyTable extends Migration {
         Schema::table('companies', function (Blueprint $table)
         {
             $table->dropForeign('companies_user_id_foreign');
+            $table->dropForeign('cities_city_id_foreign');
         });
 
 		Schema::drop('companies');

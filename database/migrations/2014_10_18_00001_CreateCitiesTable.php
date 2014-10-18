@@ -15,9 +15,7 @@ class CreateCitiesTable extends Migration {
 		Schema::create('cities', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->foreign('user_id')->references('id')->on('users');
         });
 	}
 
@@ -28,11 +26,6 @@ class CreateCitiesTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('cities', function (Blueprint $table)
-        {
-            $table->dropForeign('cities_user_id_foreign');
-        });
-
         Schema::drop('cities');
 	}
 
