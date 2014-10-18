@@ -1,6 +1,7 @@
 <?php namespace SpreadOut\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use SpreadOut\Exceptions\ApiException;
 
 class HomeController extends Controller {
 

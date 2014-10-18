@@ -2,8 +2,10 @@
 
 use Exception;
 use Illuminate\Contracts\Logging\Log;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Exception\Handler;
+use SpreadOut\Exceptions\ApiException;
 
 class ErrorServiceProvider extends ServiceProvider {
 
@@ -21,9 +23,17 @@ class ErrorServiceProvider extends ServiceProvider {
 		// even register several error handlers to handle different types of
 		// exceptions. If nothing is returned, the default error view is
 		// shown, which includes a detailed stack trace during debug.
-		$handler->error(function(Exception $e) use ($log)
+
+        $handler->error(function (ApiException $e)
+        {
+            return Response::json([
+                'message' => $e->getMessage(),
+            ], $e->getStatusCode());
+        });
+
+        $handler->error(function(Exception $e) use ($log)
 		{
-			$log->error($e);
+            $log->error($e);
 		});
 	}
 
@@ -34,7 +44,7 @@ class ErrorServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+
 	}
 
 }
