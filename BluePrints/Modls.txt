@@ -2,16 +2,22 @@ Models:
 
 Ticket:
 - UID
-- Type
+- Type ENUM: - Complaint
+             - Proposal
 - Title
 - Short Description
 - Description
 - Lat
 - Lon
 
-TiketEvent:
+TiketEvents:
 - TicketID
-- Status
+- Status ENUM: - Opened
+               - Assigned
+			   - Pending (Pending Fix)
+			   - Solved
+			   - Refused (Will Not Resolve)
+			   - Duplicate
 - Date
 
 TicketFollowers:
