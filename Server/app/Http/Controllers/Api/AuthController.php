@@ -33,7 +33,6 @@ class AuthController extends Controller {
     /**
      * @param PersonLoginRequest $request
      * @return mixed
-     * @throws \Exception
      */
     public function personToken(PersonLoginRequest $request)
     {
