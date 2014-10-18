@@ -30,7 +30,10 @@ class CompanyService
      * @param BranchContract $branch
      * @param TagContract $tag
      */
-    public function __construct(UserContract $user, CompanyContract $company, BranchContract $branch, TagContract $tag)
+    public function __construct(UserContract $user,
+                                CompanyContract $company,
+                                BranchContract $branch,
+                                TagContract $tag)
     {
         $this->company = $company;
         $this->branch = $branch;
@@ -94,5 +97,13 @@ class CompanyService
     public function createBranch(array $data)
     {
         $this->branch->create($data);
+    }
+
+    public function attachTag($company, $tag)
+    {
+        return $this->company->attachTag([
+            'company_id' => $company,
+            'tag_id' => $tag,
+        ]);
     }
 }
