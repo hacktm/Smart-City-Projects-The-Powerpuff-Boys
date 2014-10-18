@@ -1,6 +1,6 @@
 angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, NetDB) {
   $scope.loggedIn = true;
   
   // Form data for the login modal
@@ -88,29 +88,13 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
   };
 })
 
-.controller('SearchController', function($scope, $stateParams) {
+.controller('SearchController', function($scope, $stateParams, NetDB) {
 	$scope.resuls = [];
 
 	$scope.execute = function(query) {
-		alert(query.query);
-		$scope.results = [
-			{id:1, title:"Item 1"},
-			{id:2, title:"Item 2"},
-			{id:3, title:"Item 3"},
-			{id:4, title:"Item 4"},
-			{id:5, title:"Item 5"},
-			{id:6, title:"Item 6"},
-			{id:7, title:"Item 7"},
-			{id:8, title:"Item 8"},
-			{id:9, title:"Item 9"},
-			{id:10, title:"Item 10"},
-			{id:11, title:"Item 11"},
-			{id:12, title:"Item 12"},
-			{id:13, title:"Item 13"},
-			{id:14, title:"Item 14"},
-			{id:15, title:"Item 15"},
-			{id:16, title:"Item 16"}
-		];
+		NetDB.search(query.query, 1, function(data) { 
+			$scope.results = data;
+		});
 	};
 })
 
@@ -119,10 +103,6 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		{id:1, title:"Category 1"},
 		{id:2, title:"Category 2"},
 	];
-	$scope.add = function()
-	{
-		$scope.categories.push({id:3, title:"Category 3"});
-	}
 })
 
 .controller('CategoryController', function($scope, $stateParams) {
