@@ -104,6 +104,7 @@ return [
 		'SpreadOut\Providers\EventServiceProvider',
 		'SpreadOut\Providers\LogServiceProvider',
 		'SpreadOut\Providers\RouteServiceProvider',
+        'SpreadOut\Providers\RepositoryServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...
