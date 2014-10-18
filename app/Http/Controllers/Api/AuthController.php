@@ -36,6 +36,14 @@ class AuthController extends Controller {
     }
 
     /**
+     * @param PersonLoginRequest $request
+     */
+    public function companyToken(PersonLoginRequest $request)
+    {
+
+    }
+
+    /**
      * @param PersonRegisterRequest $request
      * @return mixed
      */

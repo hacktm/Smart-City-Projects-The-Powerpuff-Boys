@@ -74,6 +74,8 @@ class PersonService {
             throw new \Exception('Invalid login data !');
         }
 
+        $this->token->delete($user['id']);
+
         $token = $this->token->create([
             'user_id' => $user['id'],
             'token'   => str_random(40),

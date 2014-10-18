@@ -39,4 +39,15 @@ class TokenRepository extends AbstractRepository implements TokenContract {
 
         return $this->toArray($token);
     }
+
+    /**
+     * Delete token
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        return $this->model->where('user_id', $id)->delete();
+    }
 }
