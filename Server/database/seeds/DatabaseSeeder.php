@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder {
 
+    protected $tables = [
+        'City' => 'cities',
+    ];
 	/**
 	 * Run the database seeds.
 	 *
@@ -16,8 +19,18 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-		// $this->call('UserTableSeeder');
+
+        $this->seedTables();
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 
+    protected function seedTables()
+    {
+        foreach ($this->tables as $key => $table)
+        {
+            DB::table($table)->truncate();
+            $this->call($key . 'TableSeeder');
+        }
+    }
 }

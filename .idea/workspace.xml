@@ -62,9 +62,23 @@
       <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6754967" vertical-offset="0" max-vertical-offset="648">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-              <folding />
+            <state vertical-scroll-proportion="0.60264903" vertical-offset="380" max-vertical-offset="1008">
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+              <folding>
+                <element signature="e#7#38#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CityTableSeeder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/database/seeds/CityTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.448276" vertical-offset="552" max-vertical-offset="1248">
+              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding>
+                <element signature="e#7#38#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/Repositories/PersonContract.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_18_080857_CreatePersonsTable.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_18_085153_CreateCityTable.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_18_091337_CreateTicketTable.php" />
@@ -132,6 +145,7 @@
         <option value="$PROJECT_DIR$/Server/app/City.php" />
         <option value="$PROJECT_DIR$/Server/app/Repositories/CityContract.php" />
         <option value="$PROJECT_DIR$/Server/app/Repositories/Eloquent/CityRepository.php" />
+        <option value="$PROJECT_DIR$/Server/database/seeds/CityTableSeeder.php" />
         <option value="$PROJECT_DIR$/Server/database/seeds/DatabaseSeeder.php" />
       </list>
     </option>
@@ -412,11 +426,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/database/seeds/CityTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.448276" vertical-offset="552" max-vertical-offset="1248">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Server/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6754967" vertical-offset="0" max-vertical-offset="648">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding />
+        <state vertical-scroll-proportion="0.60264903" vertical-offset="380" max-vertical-offset="1008">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
