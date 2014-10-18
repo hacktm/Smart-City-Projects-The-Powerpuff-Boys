@@ -25,7 +25,10 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
         $company->user_id = $data['user_id'];
         $company->name = $data['name'];
         $company->cui = $data['cui'];
-        $company->active = $data['active'];
+
+        if (isset($data['city_id'])) // Marked as optional
+            $company->city_id = $data['city_id'];
+
         $company->save();
 
         return $this->toArray($company);

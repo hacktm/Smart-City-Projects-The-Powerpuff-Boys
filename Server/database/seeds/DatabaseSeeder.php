@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder {
     protected $tables = [
         'City' => ['cities'],
         'Person' => ['users', 'persons'],
+        'Company' => ['users', 'companies'],
     ];
 	/**
 	 * Run the database seeds.

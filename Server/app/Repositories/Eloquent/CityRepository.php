@@ -14,6 +14,16 @@ class CityRepository extends AbstractRepository implements CityContract {
     }
 
     /**
+     * Returns all the cities
+     *
+     * @return bool
+     */
+    public function all()
+    {
+        return $this->toArray($this->model->all());
+    }
+
+    /**
      * @param array $data
      * @return array
      */

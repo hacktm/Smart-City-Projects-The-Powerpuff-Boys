@@ -24,6 +24,7 @@ class UserRepository extends AbstractRepository implements UserContract {
         $user->password = $data['password'];
         $user->email = $data['email'];
         $user->phone = $data['phone'];
+        $user->type = $data['type'];
         $user->save();
 
         return $this->toArray($user);

@@ -40,10 +40,14 @@ class PersonService {
      */
     public function create($data)
     {
+        $data['type'] = 'company';
+
+        // Creates the credentials
         $user = $this->user->create($data);
 
         $data['user_id'] = $user['id'];
 
+        // Creates the profile
         $person = $this->person->create($data);
 
         if ( ! $person)

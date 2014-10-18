@@ -40,6 +40,8 @@ class CompanyService
      */
     public function create($data)
     {
+        $data['type'] = 'company';
+
         $user = $this->user->create($data);
 
         $data['user_id'] = $user['id'];

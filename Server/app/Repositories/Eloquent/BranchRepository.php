@@ -36,13 +36,15 @@ class BranchRepository extends AbstractRepository implements BranchContract {
      * Create branch
      *
      * @param array $data
-     * @return mixed|void
+     * @return mixed
      */
     public function create(array $data)
     {
         $branch = $this->getNew();
         $branch->name = $data['name'];
+        $branch->city_id = $data['city_id'];
         $branch->company_id = $data['company_id'];
+        $branch->save();
 
         return $this->toArray($branch);
     }

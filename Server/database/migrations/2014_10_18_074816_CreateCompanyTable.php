@@ -23,6 +23,7 @@ class CreateCompanyTable extends Migration {
             $table->boolean('active');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->timestamps();
         });
 	}
 
