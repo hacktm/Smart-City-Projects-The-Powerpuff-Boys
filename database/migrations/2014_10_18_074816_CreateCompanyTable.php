@@ -21,6 +21,7 @@ class CreateCompanyTable extends Migration {
             $table->string('name');
             $table->string('cui')->unique();
             $table->boolean('active');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 	}
 
@@ -30,7 +31,12 @@ class CreateCompanyTable extends Migration {
 	 * @return void
 	 */
 	public function down()
-	{
+    {
+        Schema::table('companies', function (Blueprint $table)
+        {
+            $table->dropForeign('companies_user_id_foreign');
+        });
+
 		Schema::drop('companies');
 	}
 

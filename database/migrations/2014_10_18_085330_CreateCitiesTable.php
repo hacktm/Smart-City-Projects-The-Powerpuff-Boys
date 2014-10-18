@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonsTable extends Migration {
+class CreateCitiesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,11 @@ class CreatePersonsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('persons', function (Blueprint $table)
+		Schema::create('cities', function (Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('firstname', 100);
-            $table->string('lastname', 100);
+            $table->string('name');
             $table->foreign('user_id')->references('id')->on('users');
         });
 	}
@@ -29,12 +28,12 @@ class CreatePersonsTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('persons', function (Blueprint $table)
+        Schema::table('cities', function (Blueprint $table)
         {
-            $table->dropForeign('persons_user_id_foreign');
+            $table->dropForeign('cities_user_id_foreign');
         });
 
-        Schema::drop('persons');
+        Schema::drop('cities');
 	}
 
 }
