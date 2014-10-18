@@ -12,7 +12,7 @@ class PersonLoginRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-			'loginNmail' => 'required', 'password' => 'required',
+			'loginName' => 'required', 'password' => 'required',
 		];
 	}
 

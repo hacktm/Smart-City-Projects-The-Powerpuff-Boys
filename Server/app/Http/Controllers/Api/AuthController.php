@@ -39,7 +39,7 @@ class AuthController extends Controller {
         $input = Input::all('loginName', 'password');
 
         return $this->person->token([
-            'username' => $input['loginName'],
+            'email'    => $input['loginName'],
             'password' => $input['password'],
         ]);
     }
