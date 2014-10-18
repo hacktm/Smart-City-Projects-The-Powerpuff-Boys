@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDistrictTable extends Migration {
+class CreateBranchesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,15 @@ class CreateDistrictTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('districts', function (Blueprint $table)
+		Schema::create('branches', function (Blueprint $table)
         {
             $table->increments('id');
             $table->string('name');
             $table->integer('city_id')->unsigned();
+            $table->integer('company_id')->unsigned();
+
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
 	}
 
@@ -28,12 +31,13 @@ class CreateDistrictTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('districts', function (Blueprint $table)
+        Schema::table('branches', function (Blueprint $table)
         {
-            $table->dropForeign('districts_city_id_foreign');
+            $table->dropForeign('branches_city_id_foreign');
+            $table->dropForeign('branches_company_id_foreign');
         });
 
-        Schema::drop('districts');
+        Schema::drop('branches');
 	}
 
 }
