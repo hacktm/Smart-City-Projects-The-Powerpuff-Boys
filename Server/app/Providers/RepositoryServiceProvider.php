@@ -17,6 +17,11 @@ class RepositoryServiceProvider extends ServiceProvider {
         );
 
         $this->app->bind(
+            'SpreadOut\Repositories\TagContract',
+            'SpreadOut\Repositories\Eloquent\TagRepository'
+        );
+
+        $this->app->bind(
             'SpreadOut\Repositories\BranchContract',
             'SpreadOut\Repositories\Eloquent\BranchRepository'
         );

@@ -41,4 +41,16 @@ class SearchController extends Controller {
 
         return $this->company->search($input);
     }
+
+    /**
+     * Search company
+     *
+     * @return mixed
+     */
+    public function tag()
+    {
+        $input = Input::only('name');
+
+        return $this->company->searchTags($input);
+    }
 }

@@ -21,6 +21,6 @@ class Tag extends Model {
      */
     public function companies()
     {
-        return $this->belongsToMany('SpreadOut\Companies');
+        return $this->belongsToMany('SpreadOut\Company');
     }
 }

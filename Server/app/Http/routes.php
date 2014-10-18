@@ -26,5 +26,6 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
     {
         Route::get('branch', 'SearchController@branch');
         Route::get('company', 'SearchController@company');
+        Route::get('tags', 'SearchController@tag');
     });
 });

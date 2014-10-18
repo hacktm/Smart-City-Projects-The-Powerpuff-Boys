@@ -24,4 +24,22 @@ class TagRepository extends AbstractRepository implements TagContract {
         $tag->name = $data['name'];
         $tag->save();
     }
+
+    /**
+     * Get branches by name
+     *
+     * @param array $data
+     * @return bool|mixed
+     */
+    public function search(array $data)
+    {
+        $find = $this->model->with('companies');
+
+        if (isset($data['name']))
+        {
+            $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        return $this->toArray($find->get());
+    }
 }
