@@ -31,6 +31,8 @@ class PersonRepository extends AbstractRepository implements PersonContract {
     {
         $user = $this->user->with('person')->where('email', $email)->first();
 
+        if ( ! $user) return false;
+
         if (Hash::check($password, $user->password))
         {
             return $this->toArray($user);

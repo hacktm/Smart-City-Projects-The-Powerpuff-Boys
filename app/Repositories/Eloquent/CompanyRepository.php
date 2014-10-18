@@ -13,6 +13,23 @@ class CompanyRepository extends AbstractRepository {
     }
 
     /**
+     * Create company
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function create(array $data)
+    {
+        $company = $this->getNew();
+        $company->user_id = $data['user_id'];
+        $company->name = $data['name'];
+        $company->cui = $data['cui'];
+        $company->active = $data['active'];
+        $company->save();
+
+        return $this->toArray($company);
+    }
+    /**
      * Find company by cui
      *
      * @param $cui

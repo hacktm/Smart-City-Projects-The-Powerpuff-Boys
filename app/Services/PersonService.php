@@ -1,6 +1,5 @@
 <?php namespace SpreadOut\Services;
 
-use Illuminate\Support\Facades\Hash;
 use SpreadOut\Exceptions\ApiException;
 use SpreadOut\Repositories\PersonContract;
 use SpreadOut\Repositories\TokenContract;
@@ -36,6 +35,7 @@ class PersonService {
      * Create person and his username
      *
      * @param $data
+     * @throws ApiException
      * @return mixed
      */
     public function create($data)
