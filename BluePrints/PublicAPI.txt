@@ -1,0 +1,52 @@
+Public API:
+
+getCountys:
+- In: -
+- Out: List<County>
+
+getCities:
+- In: (Optional) CountyID
+- Out: List<City> => No UserName 
+				     No Password
+- Exec: If CountyID NULL => Return All
+
+getInstitutions:
+- In: CityID
+- Out: List<Company>
+- Exec: SELECT * FROM Company
+        WHERE CityID = CityID
+		WHERE CUI = NULL
+		
+getCompany:
+- In: CUI
+- Out: Company => No UserName 
+				  No Password
+
+getCompanyByName:
+- In: Name
+- Out: List<City> => No UserName 
+				     No Password
+
+getFiliala:
+- In: CompanyID
+- Out: List<Filiala>
+
+getTickets:
+- In: FilialaID
+- Out: List<Ticket>
+
+getTicket:
+- In: TicketID
+- Out: Ticket
+
+
+Errors:
+
+Format:
+- Error Code
+- Error Description
+
+Code 1: API-Key Not Valid
+Code 2: API Rate Limit Reached (We will not use it)
+Code 10: Method Not Found
+Code 11: ID Not Found
