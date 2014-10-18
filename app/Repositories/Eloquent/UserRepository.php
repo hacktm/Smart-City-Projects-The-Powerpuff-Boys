@@ -34,4 +34,5 @@ class UserRepository extends AbstractRepository implements UserContract {
     {
         return $this->toArray($this->model->where('email', $email)->first());
     }
+
 }

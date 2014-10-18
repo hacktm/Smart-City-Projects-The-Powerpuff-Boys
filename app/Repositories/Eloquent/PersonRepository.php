@@ -1,8 +1,9 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
 use SpreadOut\Person;
+use SpreadOut\Repositories\PersonContract;
 
-class PersonRepository extends AbstractRepository {
+class PersonRepository extends AbstractRepository implements PersonContract {
 
     /**
      * @param Person $model

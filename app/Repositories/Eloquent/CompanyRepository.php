@@ -2,7 +2,7 @@
 
 use SpreadOut\Company;
 
-class CompanyRepositry extends AbstractRepository {
+class CompanyRepository extends AbstractRepository {
 
     /**
      * @param Company $model
