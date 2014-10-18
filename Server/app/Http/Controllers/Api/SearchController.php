@@ -18,10 +18,27 @@ class SearchController extends Controller {
         $this->company = $company;
     }
 
+    /**
+     * Search branch
+     *
+     * @return mixed
+     */
     public function branch()
     {
         $input = Input::only('name', 'city');
 
         return $this->company->searchBranch($input);
+    }
+
+    /**
+     * Search company
+     *
+     * @return mixed
+     */
+    public function company()
+    {
+        $input = Input::only('name', 'city');
+
+        return $this->company->search($input);
     }
 }

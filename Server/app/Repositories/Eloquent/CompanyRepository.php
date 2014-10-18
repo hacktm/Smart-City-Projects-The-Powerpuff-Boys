@@ -33,6 +33,30 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
 
         return $this->toArray($company);
     }
+
+    /**
+     * Get branches by name
+     *
+     * @param array $data
+     * @return bool|mixed
+     */
+    public function search(array $data)
+    {
+        $find = $this->model->with('tags');
+
+        if (isset($data['name']))
+        {
+            $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        if (isset($data['city']))
+        {
+            $find = $find->where('city_id', $data['city']);
+        }
+
+        return $this->toArray($find->get());
+    }
+
     /**
      * Find company by cui
      *

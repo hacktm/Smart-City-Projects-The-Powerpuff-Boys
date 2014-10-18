@@ -56,6 +56,15 @@ class CompanyService
      * @param array $data
      * @return mixed
      */
+    public function search(array $data)
+    {
+        return $this->company->search($data);
+    }
+
+    /**
+     * @param array $data
+     * @return mixed
+     */
     public function searchBranch(array $data)
     {
         return $this->branch->search($data);
