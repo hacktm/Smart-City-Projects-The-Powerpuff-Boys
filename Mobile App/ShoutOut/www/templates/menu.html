@@ -8,22 +8,28 @@
   </ion-pane>
 
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable">
-      <h1 class="title">Left</h1>
+    <header class="bar bar-header bar-stable bar-positive">
+      <h1 class="title">ShoutOut</h1>
     </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
+        <ion-item ng-show="!loggedIn" nav-clear menu-close ng-click="login()">
           Login
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/search">
+		<ion-item ng-show="loggedIn" nav-clear menu-close ng-click="logout()">
+          Logout
+        </ion-item>
+        <ion-item nav-clear menu-close ng-click="showSelectCity()">
+          Select City
+        </ion-item>
+		<ion-item nav-clear menu-close href="#/app/search">
           Search
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
+        <ion-item nav-clear menu-close href="#/app/categories">
           Browse
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
+        <ion-item nav-clear menu-close href="#/app/mytickets">
+          My Tickets
         </ion-item>
       </ion-list>
     </ion-content>
