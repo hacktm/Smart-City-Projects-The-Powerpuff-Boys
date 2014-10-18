@@ -1,0 +1,17 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">{{selectCityTitle}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSelectCity()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="item in selectCityList" ng-click="itemSelected(item.id)">
+        {{item.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</div>
+
+

@@ -34,25 +34,58 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/search",
       views: {
         'menuContent' :{
-          templateUrl: "templates/search.html"
+          templateUrl: "templates/search.html",
+		  controller: "SearchController"
         }
       }
     })
 
-    .state('app.browse', {
-      url: "/browse",
+    .state('app.categories', {
+      url: "/categories",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/categories.html",
+		  controller: "CategoriesController"
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+	
+	.state('app.category', {
+      url: "/category/:categoryId",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/category.html",
+		  controller: "CategoryController"
+        }
+      }
+    })
+	
+	.state('app.company', {
+      url: "/company/:companyId",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/company.html",
+		  controller: "CompanyController"
+        }
+      }
+    })
+	
+	.state('app.ticket', {
+      url: "/ticket/:ticketId",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/ticket.html",
+		  controller: "TicketController"
+        }
+      }
+    })
+	
+    .state('app.mytickets', {
+      url: "/mytickets",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/mytickets.html",
+          controller: 'MyTicketsController'
         }
       }
     })
@@ -67,6 +100,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/search');
 });
 
