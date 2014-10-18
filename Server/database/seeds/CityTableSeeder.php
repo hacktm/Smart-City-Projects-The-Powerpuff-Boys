@@ -40,7 +40,7 @@ class CityTableSeeder extends Seeder {
             $isCreated = $this->city->create([
                 'name' => $city
             ]);
-            echo ! $isCreated ?: sprintf('City %s created !'.PHP_EOL, $city);
+            echo ! $isCreated ?: sprintf('City %s created !%s', $city, PHP_EOL);
         }
     }
 

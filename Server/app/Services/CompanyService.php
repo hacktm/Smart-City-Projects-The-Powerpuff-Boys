@@ -4,7 +4,8 @@ use SpreadOut\Repositories\BranchContract;
 use SpreadOut\Repositories\CompanyContract;
 use SpreadOut\Repositories\UserContract;
 
-class CompanyService {
+class CompanyService
+{
     /**
      * @var CompanyContract
      */
@@ -63,6 +64,6 @@ class CompanyService {
      */
     public function createBranch(array $data)
     {
-
+        $this->branch->create($data);
     }
 }

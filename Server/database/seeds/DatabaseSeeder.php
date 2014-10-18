@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder {
 
     protected $tables = [
-        'City' => 'cities',
+        'City' => ['cities'],
+        'Person' => ['users', 'persons'],
     ];
 	/**
 	 * Run the database seeds.
@@ -30,7 +31,10 @@ class DatabaseSeeder extends Seeder {
     {
         foreach ($this->tables as $key => $table)
         {
-            DB::table($table)->truncate();
+            foreach ($table as $t)
+            {
+                DB::table($t)->truncate();
+            }
         }
     }
 
