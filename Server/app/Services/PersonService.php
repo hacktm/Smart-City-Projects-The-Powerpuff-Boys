@@ -99,6 +99,8 @@ class PersonService {
             'type'    => 'person'
         ]);
 
-        return $token;
+        $user['token'] = $token['token'];
+
+        return $user;
     }
 }

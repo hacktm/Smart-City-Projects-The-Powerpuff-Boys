@@ -1,5 +1,12 @@
 <?php
 
+/** Auth */
+Route::group(['namespace' => 'SpreadOut\Http\Controllers\Api'], function ()
+{
+    Route::post('users/authentication', 'AuthController@personToken');
+});
+
+/** Api */
 Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\Api'], function ()
 {
     Route::group(['prefix' => 'person'], function ()
