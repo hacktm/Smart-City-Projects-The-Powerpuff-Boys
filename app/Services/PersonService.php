@@ -49,6 +49,22 @@ class PersonService {
         return $person;
     }
 
+    /**
+     * @param $token
+     * @return mixed
+     */
+    public function login($token)
+    {
+        return $this->token->findByToken($token);
+    }
+
+    /**
+     * Generate token
+     *
+     * @param array $data
+     * @return mixed
+     * @throws \Exception
+     */
     public function token(array $data)
     {
         $user = $this->person->findByCredentials($data['email'], $data['password']);

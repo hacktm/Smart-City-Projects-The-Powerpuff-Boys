@@ -14,6 +14,19 @@ class TokenRepository extends AbstractRepository implements TokenContract {
         $this->model = $model;
     }
 
+    /**
+     * @param $token
+     * @return bool
+     */
+    public function findByToken($token)
+    {
+        return $this->toArray($this->model->where('token', $token)->first());
+    }
+
+    /**
+     * @param array $data
+     * @return bool
+     */
     public function create(array $data)
     {
         $token = $this->getNew();

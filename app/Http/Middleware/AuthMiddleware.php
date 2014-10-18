@@ -1,39 +1,22 @@
 <?php namespace SpreadOut\Http\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Routing\Middleware;
-use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
+use SpreadOut\Services\PersonService;
 
 class AuthMiddleware implements Middleware {
 
-	/**
-	 * The Guard implementation.
-	 *
-	 * @var Guard
-	 */
-	protected $auth;
+    /**
+     * @var PersonService
+     */
+    private $person;
 
-	/**
-	 * The response factory implementation.
-	 *
-	 * @var ResponseFactory
-	 */
-	protected $response;
-
-	/**
-	 * Create a new filter instance.
-	 *
-	 * @param  Guard  $auth
-	 * @param  ResponseFactory  $response
-	 * @return void
-	 */
-	public function __construct(Guard $auth,
-								ResponseFactory $response)
+    public function __construct(PersonService $person)
 	{
-		$this->auth = $auth;
-		$this->response = $response;
-	}
+        $this->person = $person;
+    }
 
 	/**
 	 * Handle an incoming request.
@@ -44,17 +27,19 @@ class AuthMiddleware implements Middleware {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->guest())
-		{
-			if ($request->ajax())
-			{
-				return $this->response->make('Unauthorized', 401);
-			}
-			else
-			{
-				return $this->response->redirectGuest('auth/login');
-			}
-		}
+        $token = $request->headers->get('Auth-Token');
+
+        if (Input::has('Auth-Token'))
+            $token = Input::get('Auth-Token');
+
+        $user = $this->person->login($token);
+
+        if ( ! $user)
+        {
+            return Response::json([
+                'message' => 'Your token is invalid !'
+            ], 401);
+        }
 
 		return $next($request);
 	}
