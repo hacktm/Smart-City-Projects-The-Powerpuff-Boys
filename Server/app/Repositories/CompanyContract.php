@@ -8,7 +8,7 @@ interface CompanyContract {
      * @param array $data
      * @return mixed
      */
-    
+
     public function create(array $data);
     /**
      * Search for companies by name
