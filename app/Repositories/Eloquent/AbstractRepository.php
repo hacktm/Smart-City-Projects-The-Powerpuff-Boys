@@ -2,11 +2,25 @@
 
 class AbstractRepository {
 
-    public function __construct()
-    {
+    /**
+     * @var
+     */
+    protected $model;
 
+    /**
+     * @param array $args
+     */
+    public function getNew(array $args = [])
+    {
+        return $this->model->newInstance($args);
     }
 
+    /**
+     * Transform the data
+     *
+     * @param $data
+     * @return bool
+     */
     public function toArray($data)
     {
         if (is_object($data))
