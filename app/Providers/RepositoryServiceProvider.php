@@ -10,5 +10,10 @@ class RepositoryServiceProvider extends ServiceProvider {
             'SpreadOut\Repositories\UserContract',
             'SpreadOut\Repositories\Eloquent\UserRepository'
         );
+
+        $this->app->bind(
+            'SpreadOut\Repositories\CompanyContract',
+            'SpreadOut\Repositories\Eloquent\CompanyRepository'
+        );
     }
 }
