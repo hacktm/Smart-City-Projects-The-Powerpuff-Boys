@@ -26,7 +26,7 @@ class BranchRepository extends AbstractRepository implements BranchContract {
 
         if (isset($data['city']))
         {
-            $find->model->where('city_id', $data['city']);
+            $find->where('city_id', $data['city']);
         }
 
         return $this->toArray($find->get());
