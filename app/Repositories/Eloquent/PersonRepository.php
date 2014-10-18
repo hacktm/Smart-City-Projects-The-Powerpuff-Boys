@@ -1,16 +1,42 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
+use Illuminate\Support\Facades\Hash;
 use SpreadOut\Person;
 use SpreadOut\Repositories\PersonContract;
+use SpreadOut\User;
 
 class PersonRepository extends AbstractRepository implements PersonContract {
+    /**
+     * @var User
+     */
+    private $user;
 
     /**
      * @param Person $model
+     * @param User $user
+     * @internal param Token $token
      */
-    public function __construct(Person $model)
+    public function __construct(Person $model, User $user)
     {
         $this->model = $model;
+        $this->user = $user;
+    }
+
+    /**
+     * @param $email
+     * @param $password
+     * @return bool
+     */
+    public function findByCredentials($email, $password)
+    {
+        $user = $this->user->with('person')->where('email', $email)->first();
+
+        if (Hash::check($password, $user->password))
+        {
+            return $this->toArray($user);
+        }
+
+        return false;
     }
 
     /**

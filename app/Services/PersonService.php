@@ -1,6 +1,8 @@
 <?php namespace SpreadOut\Services;
 
+use Illuminate\Support\Facades\Hash;
 use SpreadOut\Repositories\PersonContract;
+use SpreadOut\Repositories\TokenContract;
 use SpreadOut\Repositories\UserContract;
 
 class PersonService {
@@ -12,14 +14,21 @@ class PersonService {
      * @var PersonContract
      */
     private $person;
+    /**
+     * @var TokenContract
+     */
+    private $token;
 
     /**
      * @param UserContract $user
+     * @param PersonContract $person
+     * @param TokenContract $token
      */
-    public function __construct(UserContract $user, PersonContract $person)
+    public function __construct(UserContract $user, PersonContract $person, TokenContract $token)
     {
         $this->user = $user;
         $this->person = $person;
+        $this->token = $token;
     }
 
     /**
@@ -40,10 +49,21 @@ class PersonService {
         return $person;
     }
 
-    public function token($username, $password)
+    public function token(array $data)
     {
-        $user = $this->user->findByCredentials($email, $password);
+        $user = $this->person->findByCredentials($data['email'], $data['password']);
 
-        var_dump($user);
+        if ( ! $user)
+        {
+            throw new \Exception('Invalid login data !');
+        }
+
+        $token = $this->token->create([
+            'user_id' => $user['id'],
+            'token'   => str_random(40),
+            'type'    => 'person'
+        ]);
+
+        return $token;
     }
 }

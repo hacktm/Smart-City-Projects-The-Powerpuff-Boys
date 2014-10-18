@@ -17,7 +17,9 @@ class AuthController extends Controller {
 
     public function personToken()
     {
-        dd($this->user->token('ionut.milica@gmail.com', 'test'));
+        $input = Input::all();
+
+        return $this->person->token($input);
     }
 
     public function registerPerson(PersonRegisterRequest $request)

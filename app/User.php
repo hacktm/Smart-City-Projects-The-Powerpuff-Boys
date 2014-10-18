@@ -32,4 +32,12 @@ class User extends Model implements UserContract, CanResetPasswordContract {
     {
         $this->attributes['password'] = Hash::make($password);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function person()
+    {
+        return $this->hasOne('SpreadOut\Person');
+    }
 }

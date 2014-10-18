@@ -1,5 +1,6 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
+use Illuminate\Support\Facades\Hash;
 use SpreadOut\Repositories\UserContract;
 use SpreadOut\User;
 
@@ -28,15 +29,6 @@ class UserRepository extends AbstractRepository implements UserContract {
         return $this->toArray($user);
     }
 
-    /**
-     * @param $email
-     * @param $password
-     * @return bool
-     */
-    public function findByCredentials($email, $password)
-    {
-        return $this->toArray($this->model->where('email', $username)->where('password', $password)->first());
-    }
 
     /**
      * Find user by id
