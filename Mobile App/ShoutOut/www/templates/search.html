@@ -3,6 +3,20 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <h1>Search</h1>
+    <div class="list">
+	  <div class="item item-input-inset">
+		<label class="item-input-wrapper">
+		  <input type="text" placeholder="Query" ng-model="query.query">
+		</label>
+		<button class="button button-small" ng-click="execute(query)">
+		  Submit
+		</button>
+	  </div>
+	  <ion-list>
+        <ion-item ng-repeat="result in results" href="#/app/company/{{result.id}}">
+			{{result.title}}
+        </ion-item>
+	  </ion-list>
+	</div>
   </ion-content>
 </ion-view>
