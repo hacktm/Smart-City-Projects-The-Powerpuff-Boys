@@ -1,6 +1,7 @@
 <?php namespace SpreadOut\Services;
 
 use Illuminate\Support\Facades\Hash;
+use SpreadOut\Exceptions\ApiException;
 use SpreadOut\Repositories\PersonContract;
 use SpreadOut\Repositories\TokenContract;
 use SpreadOut\Repositories\UserContract;
@@ -44,6 +45,12 @@ class PersonService {
         $data['user_id'] = $user['id'];
 
         $person = $this->person->create($data);
+
+        if ( ! $person)
+        {
+            throw new ApiException('Server error !', 500);
+        }
+
         $person['user'] = $user;
 
         return $person;
@@ -51,19 +58,25 @@ class PersonService {
 
     /**
      * @param $token
+     * @throws ApiException
      * @return mixed
      */
     public function login($token)
     {
-        return $this->token->findByToken($token);
+        $user = $this->token->findByToken($token);
+
+        if ( ! $user)
+        {
+            throw new ApiException('Wrong user token !', 422);
+        }
+
+        return $user;
     }
 
     /**
-     * Generate token
-     *
      * @param array $data
      * @return mixed
-     * @throws \Exception
+     * @throws ApiException
      */
     public function token(array $data)
     {
@@ -71,7 +84,7 @@ class PersonService {
 
         if ( ! $user)
         {
-            throw new \Exception('Invalid login data !');
+            throw new ApiException('Invalid login data !', 422);
         }
 
         $this->token->delete($user['id']);

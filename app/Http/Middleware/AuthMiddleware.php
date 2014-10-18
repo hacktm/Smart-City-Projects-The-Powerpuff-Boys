@@ -32,14 +32,7 @@ class AuthMiddleware implements Middleware {
         if (Input::has('Auth-Token'))
             $token = Input::get('Auth-Token');
 
-        $user = $this->person->login($token);
-
-        if ( ! $user)
-        {
-            return Response::json([
-                'message' => 'Your token is invalid !'
-            ], 401);
-        }
+        $this->person->login($token);
 
 		return $next($request);
 	}
