@@ -14,6 +14,21 @@ class PersonRepository extends AbstractRepository implements PersonContract {
     }
 
     /**
+     * @param array $data
+     * @return bool
+     */
+    public function create(array $data)
+    {
+        $person = $this->getNew();
+        $person->user_id = $data['user_id'];
+        $person->firstname = $data['firstname'];
+        $person->lastname = $data['lastname'];
+        $person->save();
+
+        return $this->toArray($person);
+    }
+
+    /**
      * Find user by id
      *
      * @param $id

@@ -7,6 +7,6 @@ class ApiController extends Controller {
 
     public function __construct(UserContract $user)
     {
-        var_dump($this->user->findById(1));
+        var_dump($this->user->token('ionutxp', 'parola'));
     }
 }

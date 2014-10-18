@@ -10,6 +10,13 @@ class Person extends Model {
     protected $table = 'persons';
 
     /**
+     * No timestamps for persons
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function user()
