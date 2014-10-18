@@ -78,6 +78,14 @@ class PersonService {
     }
 
     /**
+     * @param $token
+     */
+    public function logout($token)
+    {
+        return $this->token->deleteByToken($token);
+    }
+
+    /**
      * @param array $data
      * @return mixed
      * @throws ApiException

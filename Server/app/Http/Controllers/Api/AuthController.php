@@ -45,6 +45,16 @@ class AuthController extends Controller {
     }
 
     /**
+     *
+     */
+    public function personLogout()
+    {
+        $token = Input::get('token');
+
+        return $this->person->logout($token);
+    }
+
+    /**
      * @param PersonLoginRequest $request
      * @return mixed
      */

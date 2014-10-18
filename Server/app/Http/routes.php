@@ -4,6 +4,7 @@
 Route::group(['namespace' => 'SpreadOut\Http\Controllers\Api'], function ()
 {
     Route::post('users/authentication', 'AuthController@personToken');
+    Route::delete('users/authentication/{token}', 'AuthController@personLogout');
 });
 
 /** Api */
