@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider {
 		'Illuminate\Session\Middleware\Reader',
 		'Illuminate\Session\Middleware\Writer',
 		'Illuminate\View\Middleware\ErrorBinder',
-		'SpreadOut\Http\Middleware\CsrfMiddleware',
+		//'SpreadOut\Http\Middleware\CsrfMiddleware',
         'SpreadOut\Http\Middleware\AccessMiddleware',
 	];
 
