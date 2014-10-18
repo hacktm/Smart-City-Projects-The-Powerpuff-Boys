@@ -1,0 +1,74 @@
+Models:
+
+Ticket:
+- UID
+- Type
+- Title
+- Short Description
+- Description
+- Lat
+- Lon
+
+TiketEvent:
+- TicketID
+- Status
+- Date
+
+TicketFollowers:
+- TicketID
+- UserID
+
+User:
+- UID
+- First Name
+- Last Name
+- E-Mail
+- Phone
+- UserName
+- Password
+- Active
+
+Company:
+- UID
+- Name
+- CUI
+- UserName
+- Password
+- Active
+- CityID (If Institution -> No CUI)
+
+Filiala:
+- UID
+- Nume
+- CityID
+- CompanyID
+
+County:
+- UID
+- Name
+
+City:
+- UID
+- Name
+- UserName
+- Password
+
+District:
+- UID
+- Name
+
+Street:
+- UID
+- CarterID
+- Name
+
+Ratings:
+- UID
+- Name
+
+RatingEvents:
+- UID
+- FilialaID
+- RatingID
+- Value
+- Date
