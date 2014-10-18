@@ -37,9 +37,10 @@ class CityTableSeeder extends Seeder {
     {
         foreach ($this->cities as $city)
         {
-            $this->city->create([
+            $isCreated = $this->city->create([
                 'name' => $city
             ]);
+            echo ! $isCreated ?: sprintf('City %s created !'.PHP_EOL, $city);
         }
     }
 

@@ -20,16 +20,24 @@ class DatabaseSeeder extends Seeder {
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
+        $this->truncateTables();
         $this->seedTables();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 
-    protected function seedTables()
+    protected function truncateTables()
     {
         foreach ($this->tables as $key => $table)
         {
             DB::table($table)->truncate();
+        }
+    }
+
+    protected function seedTables()
+    {
+        foreach ($this->tables as $key => $table)
+        {
             $this->call($key . 'TableSeeder');
         }
     }

@@ -21,6 +21,7 @@ class CityRepository extends AbstractRepository implements CityContract {
     {
         $city = $this->getNew();
         $city->name = $data['name'];
+        $city->save();
 
         return $this->toArray($city);
     }
