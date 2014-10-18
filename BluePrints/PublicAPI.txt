@@ -27,12 +27,12 @@ getCompanyByName:
 - Out: List<City> => No UserName 
 				     No Password
 
-getFiliala:
+getCompanyBranches:
 - In: CompanyID
-- Out: List<Filiala>
+- Out: List<Branch>
 
 getTickets:
-- In: FilialaID
+- In: BranchID
 - Out: List<Ticket>
 
 getTicket:
