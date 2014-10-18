@@ -2,17 +2,17 @@ Public API:
 
 getCountys:
 - In: -
-- Out: List<County>
+- Out: Array<County>
 
 getCities:
 - In: (Optional) CountyID
-- Out: List<City> => No UserName 
+- Out: Array<City> => No UserName 
 				     No Password
 - Exec: If CountyID NULL => Return All
 
 getInstitutions:
 - In: CityID
-- Out: List<Company>
+- Out: Array<Company>
 - Exec: SELECT * FROM Company
         WHERE CityID = CityID
 		WHERE CUI = NULL
@@ -24,16 +24,16 @@ getCompany:
 
 getCompanyByName:
 - In: Name
-- Out: List<City> => No UserName 
+- Out: Array<City> => No UserName 
 				     No Password
 
 getCompanyBranches:
 - In: CompanyID
-- Out: List<Branch>
+- Out: Array<Branch>
 
 getTickets:
 - In: BranchID
-- Out: List<Ticket>
+- Out: Array<Ticket>
 
 getTicket:
 - In: TicketID

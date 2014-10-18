@@ -24,6 +24,19 @@
 			<h1>Public API <small> Methods you can Call </small></h1>
 		</div>
 		
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<span class="label label-warning">!!!</span>
+				<b>&nbsp;NOTICE!</b>
+			</div>
+			<div class="panel-body">
+				<p class="list-group" style="margin-bottom: -1px;">
+					<b>Request URL Format:</b><br>
+					<h5>INSERT_LINK_HERE/public_api/<b>Mehod_Name</b>?apikey=<b>API_Key</b>&amp;...</h5>
+				</p>
+			</div>
+		</div>
+		
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<span class="label label-success">GET</span>
@@ -32,12 +45,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a County Array containing the Counties including ID and Name</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
 						<p>No Input</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Array&lt;County&gt;</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -57,12 +74,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a City Array containing City ID and Name from a given County. If no County is specified, will contain all Cities</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>County ID (Optional)</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Array&lt;City&gt;</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -82,12 +103,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a Institution Array containing ID and Name</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>CityID</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Array&lt;Institution&gt;</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -107,12 +132,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns the Company of the specified CUI containing Name, CUI and Active Status in our System</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>Company CUI</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Company Object</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -132,12 +161,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a Company Array from a given Name used as a query, containing Name, CUI and Active Status in our System </p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>Name Query</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Array&lt;Company&gt;</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -157,12 +190,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a Integer Array of the Company having the specified CUI, containing CityIDs where branches are present</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>Company CUI</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Array&lt;Integer&gt;</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -182,12 +219,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a Ticket Array issued for the given BranchID, containing Name, Short Description, Long Description, Latitude (Optional) and Longitude (Optional)</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>BranchID</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Array&lt;Ticket&gt;</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
@@ -207,12 +248,16 @@
 			<div class="panel-body">
 				<ul class="list-group" style="margin-bottom: -1px;">
 					<li class="list-group-item">
+						<p style="margin-bottom: 5px;"><b>Description:</b><br>
+						<p>Returns a Ticket Object from the given ID, containing Name, Short Description, Long Description, Latitude (Optional) and Longitude (Optional)</p>
+					</li>
+					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>In:</b><br>
-						<p>No Input</p>
+						<p>TicketID</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Out:</b><br>
-						<p>No Output</p>
+						<p>Ticket Object</p>
 					</li>
 					<li class="list-group-item">
 						<p style="margin-bottom: 5px;"><b>Example:</b><br>
