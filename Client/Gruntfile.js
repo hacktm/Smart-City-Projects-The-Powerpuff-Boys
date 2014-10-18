@@ -81,16 +81,12 @@ module.exports = function (grunt) {
                 src: [
                     "bower_components/jquery/jquery.min.js",
                     "bower_components/bootstrap/dist/js/bootstrap.min.js",
-                    "bower_components/select2/select2.min.js",
                     "bower_components/angular/angular.min.js",
                     "bower_components/angular-resource/angular-resource.min.js",
                     "bower_components/angular-route/angular-route.min.js",
                     "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
-                    "bower_components/angular-ui-select2/src/select2.js",
-                    "bower_components/busymachines-commons-client/bmComponents.js",
+                    "bower_components/commons/bmComponents.js",
                     "bower_components/momentjs/min/moment-with-langs.min.js",
-                    "bower_components/keyboardjs/keyboard.js",
-                    "lib/chosen/chosen.jquery.min.js",
                     "lib/angular-l10n/l10n-with-tools.min.js"
                 ],
                 dest: 'js/<%= pkg.name %>.libs.js'
@@ -98,7 +94,7 @@ module.exports = function (grunt) {
             code: {
                 src: [
                     "js/config/app.js",
-                    "js/l10n/**/*.js",
+                    "js/languages/**/*.js",
                     "js/config/config.js",
                     "js/controllers/**/*.js",
                     "js/directives/**/*.js",

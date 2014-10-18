@@ -25,8 +25,6 @@
     "es5-shim": "latest",
     "json3": "latest",
     "momentjs": "~2.5",
-    "select2": "3.4.8",
-    "angular-ui-select2": "0.0.5",
     "commons": "git@github.com:bizimasins/commons.git"
   }
 }
