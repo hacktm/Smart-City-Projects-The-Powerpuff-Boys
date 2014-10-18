@@ -6,3 +6,5 @@
 Thumbs.db
 composer.lock
 composer.phar
+/webapp/bower_components
+/webapp/node_modules
