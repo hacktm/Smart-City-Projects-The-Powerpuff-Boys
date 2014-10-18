@@ -1,11 +1,11 @@
 <?php namespace SpreadOut\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use SpreadOut\Repositories\UserContract;
+use SpreadOut\Repositories\PersonContract;
 
 class HomeController extends Controller {
 
-    public function __construct(UserContract $user)
+    public function __construct(PersonContract $user)
     {
         // Test
         var_dump($user->findById(1));

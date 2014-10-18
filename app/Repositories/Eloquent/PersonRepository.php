@@ -14,12 +14,23 @@ class PersonRepository extends AbstractRepository implements PersonContract {
     }
 
     /**
+     * Find user by id
+     *
+     * @param $id
+     * @return bool
+     */
+    public function findById($id)
+    {
+        return $this->toArray($this->model->with('user')->where('user_id', $id)->get());
+    }
+
+    /**
      * Get all person
      *
      * @return bool
      */
     public function all()
     {
-        return $this->toArray($this->model->all());
+        return $this->toArray($this->model->with('user')->get());
     }
 }
