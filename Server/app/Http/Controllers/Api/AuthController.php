@@ -22,6 +22,7 @@ class AuthController extends Controller {
 
     /**
      * @param PersonService $person
+     * @param CompanyService $company
      */
     public function __construct(PersonService $person, CompanyService $company)
     {
@@ -36,9 +37,12 @@ class AuthController extends Controller {
      */
     public function personToken(PersonLoginRequest $request)
     {
-        $input = Input::all();
+        $input = Input::all('loginName', 'password');
 
-        return $this->person->token($input);
+        return $this->person->token([
+            'username' => $input['loginName'],
+            'password' => $input['password'],
+        ]);
     }
 
     /**

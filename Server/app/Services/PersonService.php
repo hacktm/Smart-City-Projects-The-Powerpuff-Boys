@@ -71,7 +71,7 @@ class PersonService {
 
         if ( ! $user)
         {
-            throw new ApiException('Wrong user token !', 422);
+            throw new ApiException('Authentication failed. Wrong user token provided !', 422);
         }
 
         return $user;
