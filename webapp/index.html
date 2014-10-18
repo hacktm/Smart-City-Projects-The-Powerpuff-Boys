@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="spreadout">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="City Solutions">
+    <meta name="author" content="">
+    <base href="/crawling/">
+
+    <title>SpreadOut</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--<link href="bower_components/select2/select2.css" rel="stylesheet">-->
+    <link href="lib/chosen/chosen.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/admin.css" rel="stylesheet">
+
+
+    <style>
+      [class*="col-lg-"] .chosen-container { width: 100px;}
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="scs-main-container">
+        <nav class="navbar navbar-default navbar-static-top scs-nav-bar" role="navigation" ng-controller="NavCtrl">
+            <div class="container-fluid container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Sources</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" class="active" data-toggle="dropdown">Crawling <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/crawlproject">Crawl projects</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extraction <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../extraction/sources">Sources</a></li>
+                                <li><a href="../extraction/">Url Selectors</a></li>
+                                <li><a href="../extraction/monitored-terms">Monitored terms</a></li>
+                                <li><a href="../extraction/semantic-topics">Semantic topics</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">QA & Regression<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Test</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">Tools</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                                Administrator <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Settings</a></li>
+                                <li><a ng-click="logout($event)">Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+      <div class="container">
+      <div bm-notification bm-notification-template="'templates/notification.html'" notification-type="generalNotification"></div>
+      </div>
+     <div class="container" ng-view>
+        <!-- Breadcrumb component -->
+      <!--
+      <ol class="breadcrumb" ng-controller="BreadCrumbCtrl">
+        <li ng-repeat="breadcrumb in breadcrumbs" ng-class="{active:$last}"><a href="{{breadcrumb.url}}" >{{breadcrumb.name}}</a></li>
+      </ol>-->
+      
+      <!--
+      <ng-include src="'http://localhost:8000/templates/sources-list.html'" />
+      -->
+      <!--<ng-include src="'/templates/sitechannel/sitechannel-details.html'" ng-controller="SiteCrawlCtrl" />-->
+
+      <!--
+      <ng-include src="'/templates/url-selector/selector-edit.html'" ng-controller="UrlSelectorsCtrl" />
+      -->
+    </div> <!-- /container -->
+    <div class="scs-footer-push"></div>
+  </div>
+    <ng-include src="'/templates/footer.html'"/>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="js/controllers.js"></script>  -->  
+    <script src="js/sources.libs.js?rel=620ee1628f208d582f80032f4d96d900" type="text/javascript"></script>
+    <script src="js/sources.app.js?rel=d6ed60267544afc65497df2d8311cc52" type="text/javascript"></script>
+
+  </body>
+</html>
