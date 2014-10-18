@@ -20,7 +20,7 @@ class SearchController extends Controller {
 
     public function branch()
     {
-        $input = Input::all();
+        $input = Input::only('name', 'city');
 
         return $this->company->searchBranch($input);
     }
