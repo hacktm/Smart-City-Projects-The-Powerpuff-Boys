@@ -33,9 +33,19 @@ class BranchRepository extends AbstractRepository implements BranchContract {
     {
         $find = $this->model;
 
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
         if (isset($data['name']))
         {
            $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        if (isset($data['company']))
+        {
+            $find = $find->where('company_id', $data['company']);
         }
 
         if (isset($data['city']))

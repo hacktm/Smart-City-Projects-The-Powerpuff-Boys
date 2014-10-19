@@ -5,7 +5,6 @@ use SpreadOut\Repositories\BranchContract;
 use SpreadOut\Repositories\Eloquent\CityRepository;
 use SpreadOut\Repositories\TagContract;
 use SpreadOut\Services\CompanyService;
-use SpreadOut\Services\PersonService;
 
 class CompanyTableSeeder extends Seeder {
 
