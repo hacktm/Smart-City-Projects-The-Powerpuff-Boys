@@ -1,4 +1,4 @@
-angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
+angular.module('SpreadOut.controllers', ["SpreadOut.NetworkService"])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, NetDB) {
   if (window.localStorage["loggedIn"])
@@ -211,7 +211,7 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		if (!data || data.length == 0) {
 			$scope.noItems = true;
 		} else {
-			$scope.companies = [];
+			$scope.branches = [];
 			for (var i=0; i<data[0].branches.length; i++) {
 				if (data[0].branches.length > 0) {
 					$scope.branches.push({
@@ -239,23 +239,31 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		} else {
 			$scope.name = data[0].name;
 			$scope.description = data[0].description;
+			if ($scope.description == "") {
+				$scope.description = "No Description";
+			}
 		}
 	});
 })
 
-.controller('TicketsController', function($scope, $ionicModal, $stateParams) {
+.controller('TicketsController', function($scope, $ionicModal, $stateParams, NetDB) {
 	$scope.branchId = $stateParams.branchId;
 	$scope.ticketType = $stateParams.ticketType;
-	$scope.ticketTypeName = $stateParams.ticketType == 1 ? "Proposal" : "Complaint";
+	$scope.ticketTypeName = $stateParams.ticketType == 1 ? "Proposal" : "Complain";
 	
 	$scope.tickets = [];
 	$scope.loaded = false;
 	$scope.noItems = false;
 	
-	$scope.tickets = [
-		{id:1, name:"Ticket 1"},
-		{id:2, name:"Ticket 2"},
-	];
+	$scope.tickets = [];
+	NetDB.tickets($scope.branchId, $scope.ticketTypeName, function(data) {
+		if (!data || data.length == 0) {
+			$scope.noItems = true;
+		} else {
+			$scope.tickets = data;
+		}
+		$scope.loaded = true;
+	});
 	
 	$ionicModal.fromTemplateUrl('templates/newTicket.html', {
 		scope: $scope

@@ -1,4 +1,4 @@
-angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
+angular.module('SpreadOut', ['ionic', 'SpreadOut.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -55,7 +55,7 @@ angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
     })
 	
 	.state('app.company', {
-      url: "/company/:companyId/:companyName",
+      url: "/company/:branchId/:companyId",
       views: {
         'menuContent' :{
           templateUrl: "templates/company.html",

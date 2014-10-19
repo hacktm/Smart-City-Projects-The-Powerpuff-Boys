@@ -1,4 +1,4 @@
-angular.module("ShoutOut.NetworkService", [])
+angular.module("SpreadOut.NetworkService", [])
 
 .service('NetDB', function($http) {
 var URL = "http://spreadout.cloudapp.net/api/v1/";
@@ -57,5 +57,13 @@ return {
 			callback(response);
 		});
 	},
+	tickets: function(branchId, typeString, callback) {
+		$http.get(URL + "search/ticket?branch_id=" + branchId + "&type=" + typeString).success(function (response) {
+			callback(response);
+		});
+	},
+	ticket: function() {
+	
+	}
 }
 });
