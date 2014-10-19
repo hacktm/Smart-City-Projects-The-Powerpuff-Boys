@@ -75,7 +75,6 @@ class CompanyTableSeeder extends Seeder {
                 ]);
 
                 $this->createBranch($company, $city);
-                $this->attachTag($company);
 
                 echo ! $company ?: sprintf('Company %s was created !%s', $company['name'], PHP_EOL);
 
@@ -90,19 +89,22 @@ class CompanyTableSeeder extends Seeder {
      */
     protected function createBranch($company, $city)
     {
-        $this->branch->create([
+        $branch = $this->branch->create([
             'name' => $company['name'],
             'city_id' => $city['id'],
             'company_id' => $company['id'],
         ]);
+
+        $this->attachTag($branch);
     }
 
     /**
      * Attach tag to an company
      *
-     * @param $company
+     * @param $branch
+     * @internal param $company
      */
-    public function attachTag($company)
+    public function attachTag($branch)
     {
         shuffle($this->tags);
 
@@ -110,7 +112,7 @@ class CompanyTableSeeder extends Seeder {
 
         foreach ($tags as $tag)
         {
-            $this->company->attachTag($company['id'], $tag);
+            $this->company->attachTag($branch['id'], $tag);
         }
     }
 }

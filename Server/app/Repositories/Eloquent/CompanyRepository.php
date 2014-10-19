@@ -58,32 +58,6 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
     }
 
     /**
-     * Attach a tag to a company
-     *
-     * @param array $data
-     * @return bool
-     */
-    public function attachTag(array $data)
-    {
-        $this->model->find($data['company_id'])->tags()->attach($data['tag_id']);
-
-        return true;
-    }
-
-    /**
-     * Attach a tag to a company
-     *
-     * @param array $data
-     * @return bool
-     */
-    public function detachTag(array $data)
-    {
-        $this->model->find($data['company_id'])->tags()->detach($data['tag_id']);
-
-        return true;
-    }
-
-    /**
      * Find company by cui
      *
      * @param $cui

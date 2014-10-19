@@ -99,10 +99,18 @@ class CompanyService
         $this->branch->create($data);
     }
 
-    public function attachTag($company, $tag)
+    public function attachTag($branch, $tag)
     {
-        return $this->company->attachTag([
-            'company_id' => $company,
+        return $this->branch->attachTag([
+            'branch_id' => $branch,
+            'tag_id' => $tag,
+        ]);
+    }
+
+    public function detachTag($branch, $tag)
+    {
+        return $this->branch->detachTag([
+            'branch_id' => $branch,
             'tag_id' => $tag,
         ]);
     }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompanyTagTable extends Migration {
+class CreateBranchTagTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateCompanyTagTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('company_tag', function (Blueprint $table)
+		Schema::create('branch_tag', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('company_id')->unsigned();
+            $table->integer('branch_id')->unsigned();
             $table->integer('tag_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
 	}
@@ -29,12 +29,12 @@ class CreateCompanyTagTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('company_tag', function (Blueprint $table)
+        Schema::table('branch_tag', function (Blueprint $table)
         {
-            $table->dropForeign('company_tag_company_id_foreign');
-            $table->dropForeign('company_tag_tag_id_foreign');
+            $table->dropForeign('branch_tag_branch_id_foreign');
+            $table->dropForeign('branch_tag_tag_id_foreign');
         });
-		Schema::drop('company_tag');
+		Schema::drop('branch_tag');
 	}
 
 }

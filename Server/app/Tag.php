@@ -19,8 +19,8 @@ class Tag extends Model {
     /**
      * @return mixed
      */
-    public function companies()
+    public function branches()
     {
-        return $this->belongsToMany('SpreadOut\Company');
+        return $this->belongsToMany('SpreadOut\Branch');
     }
 }

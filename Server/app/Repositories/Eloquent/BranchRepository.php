@@ -38,6 +38,32 @@ class BranchRepository extends AbstractRepository implements BranchContract {
     }
 
     /**
+     * Attach a tag to a company
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function attachTag(array $data)
+    {
+        $this->model->find($data['branch_id'])->tags()->attach($data['tag_id']);
+
+        return true;
+    }
+
+    /**
+     * Attach a tag to a company
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function detachTag(array $data)
+    {
+        $this->model->find($data['branch_id'])->tags()->detach($data['tag_id']);
+
+        return true;
+    }
+
+    /**
      * Create branch
      *
      * @param array $data

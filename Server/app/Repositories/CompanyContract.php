@@ -34,19 +34,4 @@ interface CompanyContract {
      */
     public function findByName($name);
 
-    /**
-     * Attach tag to a company
-     *
-     * @param array $data
-     * @return mixed
-     */
-    public function attachTag(array $data);
-
-    /**
-     * Detach tag from a company
-     *
-     * @param array $data
-     * @return mixed
-     */
-    public function detachTag(array $data);
 }

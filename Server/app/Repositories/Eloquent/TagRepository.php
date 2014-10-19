@@ -1,5 +1,6 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
+use Illuminate\Support\Facades\DB;
 use SpreadOut\Repositories\TagContract;
 use SpreadOut\Tag;
 
@@ -48,7 +49,7 @@ class TagRepository extends AbstractRepository implements TagContract {
      */
     public function search(array $data)
     {
-        $find = $this->model->with(array('companies' => function ($query) use ($data)
+        $find = $this->model->with(array('branches' => function ($query) use ($data)
         {
             if (isset($data['city']))
             {
