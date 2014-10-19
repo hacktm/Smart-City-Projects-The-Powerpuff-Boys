@@ -27,7 +27,7 @@ class ApiController extends Controller {
      */
     public function __construct(CompanyService $company, TicketService $ticket, LocationService $location)
     {
-        $this->middleware('SpreadOut\Http\Middleware\Pauth');
+        //$this->middleware('SpreadOut\Http\Middleware\Pauth');
 
         $this->company = $company;
         $this->ticket = $ticket;

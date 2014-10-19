@@ -8,14 +8,14 @@ class CityTableSeeder extends Seeder {
     /**
      * @var array
      */
-    protected $cities = ['Alba', 'Arad', 'Arges', 'Bacau',
-        'Bihor', 'Bistrita-Nasaud', 'Botosani',
-        'Brasov', 'Braila', 'Buzau', 'Caras-Severin',
-        'Calarasi', 'Cluj', 'Constanta', 'Covasna', 'Dambovita',
-        'Dolj', 'Galati', 'Giurgiu', 'Gorj', 'Harghita', 'Hunedoara',
-        'Ialomita', 'Iasi', 'Ilfov', 'Maramures', 'Mehedinti', 'Mures',
-        'Neamt', 'Olt', 'Prahova', 'Satu Mare', 'Salaj', 'Sibiu', 'Suceava',
-        'Teleorman', 'Timis', 'Tulcea', 'Vaslui', 'Valcea', 'Vrancea'
+    protected $cities = ['Alba Iulia', 'Arad', 'Pitesti', 'Bacau',
+        'Oradea', 'Bistrita', 'Botosani', 'Brasov', 'Braila', 'Buzau', 'Resita',
+        'Calarasi', 'Cluj-Napoca', 'Constanta', 'Sfantu Gheorghe', 'Targoviste',
+        'Craiova', 'Galati', 'Giurgiu', 'Targu Jiu', 'Miercurea Ciuc', 'Deva',
+        'Slobozia', 'Iasi', 'Bucuresti', 'Baia Mare', 'Drobeta-Turnu Severin',
+        'Targu Mures', 'Piatra Neamt', 'Slatina', 'Ploiesti', 'Satu Mare', 'Zalau',
+        'Sibiu', 'Suceava', 'Alexandria', 'Timisoara', 'Tulcea', 'Vaslui',
+        'Ramnicu Valcea', 'Focsani'
     ];
 
     /**
