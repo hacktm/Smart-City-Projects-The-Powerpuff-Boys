@@ -63,6 +63,7 @@ angular.module('SpreadOut.controllers', ["SpreadOut.NetworkService"])
 			$scope.disabled = false;
 		}, 
 		function(data) {
+		window.localStorage["token"] = "";
 			$scope.displayError = true;
 			$scope.disabled = false;
 		}
@@ -271,6 +272,8 @@ angular.module('SpreadOut.controllers', ["SpreadOut.NetworkService"])
 		$scope.newTicketModal = modal;
 	});
 	
+	$scope.newTicket = {};
+	
 	$scope.createNew = function()
 	{
 		if (window.localStorage["loggedIn"] == "false") {
@@ -278,7 +281,6 @@ angular.module('SpreadOut.controllers', ["SpreadOut.NetworkService"])
 		} else {
 			if ($scope.newTicket) {
 				$scope.newTicket.title = "";
-				$scope.newTicket.shortD = "";
 				$scope.newTicket.description = "";
 			}
 			$scope.newTicketModal.show();
@@ -292,13 +294,29 @@ angular.module('SpreadOut.controllers', ["SpreadOut.NetworkService"])
 	
 	$scope.doNewTicket = function()
 	{
-		console.log($scope.newTicket);
+		NetDB.postTicket($scope.branchId, $scope.ticketTypeName.toLowerCase(), $scope.newTicket.title, $scope.newTicket.description, window.localStorage["token"],
+			function(data) {
+				$scope.closeNewTicketModal();
+				location.reload();
+			},
+			function(data) {
+				alert("Something went wrong. \nTry Logging in again.")
+			})
 	};
 })
 
-.controller('TicketController', function($scope, $stateParams) {
-	$scope.ticketName = $stateParams.ticketName;
+.controller('TicketController', function($scope, $stateParams, NetDB) {
+	$scope.ticketId = $stateParams.ticketId;
 	
+	NetDB.ticket($scope.ticketId, function(data) {
+		if (!data || data.length == 0) {
+			;
+		} else {
+			$scope.title = data[0].title;
+			$scope.description = data[0].description;
+			$scope.status = data[0].status;
+		}
+	});
 })
 
 .controller('MyTicketsController', function($scope, $stateParams) {

@@ -3,6 +3,7 @@ angular.module("SpreadOut.NetworkService", [])
 .service('NetDB', function($http) {
 var URL = "http://spreadout.cloudapp.net/api/v1/";
 var AUTH = "http://spreadout.cloudapp.net/users/authentication";
+var POS = "http://spreadout.cloudapp.net/api/v1/person/tickets";
 return {
     login: function(email, pass, callback, failback) {
 		$http.post(AUTH, {loginName: email, password: pass})
@@ -62,8 +63,24 @@ return {
 			callback(response);
 		});
 	},
-	ticket: function() {
-	
+	ticket: function(ticketId, callback) {
+		$http.get(URL + "search/ticket?id=" + ticketId).success(function (response) {
+			callback(response);
+		});
+	},
+	postTicket: function(branchId, typeString, title, description, token, callback, failback) {
+		$http.post(POS + "?x-token=" + token, {
+				branch: branchId, 
+				title: title,
+				description: description,
+				type: typeString
+			})
+			.success(function (response) {
+				callback(response);
+			})
+			.error(function(response) {
+				failback(response);
+			});
 	}
 }
 });
