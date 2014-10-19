@@ -12,12 +12,19 @@ namespace ApiTestApp
     {
         static void Main(string[] args)
         {
-            string ApiKey = "";
-
             Task.Run(async () =>
             {
-                ShoutOut s = new ShoutOut(ApiKey);
+                ShoutOut s = new ShoutOut();
 
+                var a = await s.getCountiesAsync();
+                var b = await s.getCitiesAsync(a[0].ID);
+                var c = await s.getInstitutionsAsync(b[0].ID);
+                var d = await s.getCompanyByCUIAsync("1");
+                var e = await s.getCompanyByNameAsync("a");
+                var f = await s.getTicketsAsync(1);
+                var g = await s.getTicketAsync(1);
+
+                Console.WriteLine("Done!");
             }).Wait();
 
             Console.ReadKey();

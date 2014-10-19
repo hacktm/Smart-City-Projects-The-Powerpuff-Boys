@@ -10,6 +10,9 @@ namespace ShoutOut_PublicAPI_Library.Models
 
         #region Members
 
+        private int _ID = 0;
+        public int ID { get { return _ID; } }
+
         private string _CUI = "";
         public string CUI { get { return _CUI; } }
 
@@ -25,8 +28,9 @@ namespace ShoutOut_PublicAPI_Library.Models
         
         }
 
-        internal Company(string name, string cui)
+        internal Company(int id, string name, string cui)
         {
+            _ID = id;
             _Name = name;
             _CUI = cui;
         }
@@ -34,4 +38,5 @@ namespace ShoutOut_PublicAPI_Library.Models
         #endregion
 
     }
+
 }

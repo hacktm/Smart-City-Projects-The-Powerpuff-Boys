@@ -8,3 +8,23 @@ C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ApiTestApp\
 C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.csprojResolveAssemblyReference.cache
 C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.exe
 C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.pdb
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\ApiTestApp.exe.config
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.exe
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.pdb
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\ApiTestApp.exe
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\ApiTestApp.pdb
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\ShoutOut PublicAPI Library.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\ShoutOut PublicAPI Library.pdb
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.csprojResolveAssemblyReference.cache
