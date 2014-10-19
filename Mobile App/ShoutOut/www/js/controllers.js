@@ -29,14 +29,19 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
   });
   
   $scope.authBtnClick = function() {
-	if ($scope.loggedIn == true)
+	if ($scope.loggedIn == "true") {
 		$scope.doLogout();
-	else
+	} else {
 		$scope.showLogin();
-  }
+	}
+  };
   
   $scope.showLogin = function() {
-    $scope.loginModal.show();
+    $scope.disabled = false;
+	$scope.displayError = false;
+	$scope.loginData = {};
+	
+	$scope.loginModal.show();
   };
 
   $scope.closeLogin = function() {
@@ -44,28 +49,44 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
   };
   
   $scope.doLogin = function() {
-	window.localStorage["user"] = $scope.loginData.username;
+	$scope.disabled = true;
+	$scope.displayError = false;
+	window.localStorage["email"] = $scope.loginData.email;
 	
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-	
-	window.localStorage["loggedIn"] = "true";
-	$scope.loggedIn = true;
-	$scope.auth_action = "Logout";
+	NetDB.login($scope.loginData.email, $scope.loginData.password, 
+		function(data) {
+			window.localStorage["loggedIn"] = "true";
+			window.localStorage["token"] = data["token"];
+			$scope.loggedIn = "true";
+			$scope.auth_action = "Logout";
+			$scope.closeLogin();
+			$scope.disabled = false;
+		}, 
+		function(data) {
+			$scope.displayError = true;
+			$scope.disabled = false;
+		}
+	);
   };
   
   $scope.doLogout = function() {
-	window.localStorage["loggedIn"] = "false";
-    $scope.loggedIn = false;
-    $scope.auth_action = "Login";
+	NetDB.logout(window.localStorage["token"], 
+		function(data) {
+			window.localStorage["loggedIn"] = "false";
+			window.localStorage["token"] = "";
+			$scope.loggedIn = false;
+			$scope.auth_action = "Login";
+		},
+		function(data) {
+			alert("Logout Failed \nSomething went wrong...");
+		}
+	);
   };
   
   // Select City Logic
   
   $scope.countyId = -1;
+  $scope.countyName = "";
   $scope.cityId = -1;
   
   $ionicModal.fromTemplateUrl('templates/selectCounty.html', {
@@ -77,15 +98,27 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
   $scope.showSelectCity = function() {
     $scope.selectCityModal.show();
 	
+	$scope.loaded = false;
+	$scope.noItems = false;
+	
 	$scope.selectCityTitle = "Select County";
-	$scope.selectCityList = [
-		{id:1, name:"County 1"},
-		{id:2, name:"County 2"}
-	];
+	$scope.selectCityList = [];
+	NetDB.counties(function(data) { 
+		if  (!data || data.length == 0) {
+			$scope.noItems = true;
+		} else {
+			$scope.selectCityList = data;
+		}
+		$scope.loaded = true;
+	});
   };
   
   $scope.closeSelectCity = function() {
     $scope.selectCityModal.hide();
+	
+    $scope.countyId = -1;
+	$scope.countyName = "";
+	$scope.cityId = -1;
   };
   
   $scope.itemSelected = function(itemId, itemName) {
@@ -93,18 +126,28 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		// A County was Selected
 		// Get Cities
 		$scope.countyId = itemId;
+		$scope.countyName = itemName;
+		
+		$scope.loaded = false;
+		$scope.noItems = false;
+		
 		$scope.selectCityTitle = "Select City";
-		$scope.selectCityList = [
-			{id:1, name:"City 1"},
-			{id:2, name:"City 2"}
-		];
+		$scope.selectCityList = [];
+		NetDB.cities($scope.countyId, function(data) { 
+			if  (!data || data.length == 0) {
+				$scope.noItems = true;
+			} else {
+				$scope.selectCityList = data;
+			}
+			$scope.loaded = true;
+		});
 	} else {
 		// A City was Selected
 		// Load City
 		window.localStorage["cityId"] = itemId;
 		$scope.city_id = itemId;
-		window.localStorage["cityName"] = itemName;
-		$scope.city_name = itemName;
+		window.localStorage["cityName"] = itemName + " (" + $scope.countyName + ")";
+		$scope.city_name = window.localStorage["cityName"];
 		
 		$scope.selectCityTitle = "Done!";
 		$scope.closeSelectCity();
@@ -156,25 +199,48 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 	});
 })
 
-.controller('CategoryController', function($scope, $stateParams) {
+.controller('CategoryController', function($scope, $stateParams, NetDB) {
 	$scope.categoryId = $stateParams.categoryId;
 	$scope.categoryName = $stateParams.categoryName;
 	
-	$scope.companies = [];
+	$scope.branches = [];
 	$scope.loaded = false;
 	$scope.noItems = false;
 	
-	$scope.companies = [
-		{id:1, name:"Company 1"},
-		{id:2, name:"Company 2"},
-	];
+	NetDB.branches(window.localStorage["cityId"], $scope.categoryId, function(data) { 
+		if (!data || data.length == 0) {
+			$scope.noItems = true;
+		} else {
+			$scope.companies = [];
+			for (var i=0; i<data[0].branches.length; i++) {
+				if (data[0].branches.length > 0) {
+					$scope.branches.push({
+						id:data[0].branches[i].id, 
+						companyId:data[0].branches[i].company_id, 
+						name:data[0].branches[i].name
+					});
+				}
+			}
+			if ($scope.branches.length == 0) {
+				$scope.noItems = true;
+			}
+		}
+		$scope.loaded = true;
+	});
 })
 
-.controller('CompanyController', function($scope, $stateParams) {
+.controller('CompanyController', function($scope, $stateParams, NetDB) {
+	$scope.branchId = $stateParams.branchId;
 	$scope.companyId = $stateParams.companyId;
-	$scope.companyName = $stateParams.companyName;
 	
-	$scope.companyDesc = "This is a Description.";
+	NetDB.company($scope.companyId, function(data) { 
+		if (!data || data.length == 0) {
+			;
+		} else {
+			$scope.name = data[0].name;
+			$scope.description = data[0].description;
+		}
+	});
 })
 
 .controller('TicketsController', function($scope, $ionicModal, $stateParams) {

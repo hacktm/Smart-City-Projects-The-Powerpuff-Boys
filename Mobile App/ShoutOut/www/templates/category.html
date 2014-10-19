@@ -1,7 +1,4 @@
 <ion-view title="{{categoryName}}">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
   <ion-nav-buttons side="right">
 	<a href="#/app/search"><button class="button button-icon icon ion-search"></button></a>
   </ion-nav-buttons>
@@ -13,8 +10,8 @@
 	  <ion-item ng-if="noItems">
 		<p align="center" disabled>No Results</p>
 	  </ion-item>
-      <ion-item ng-repeat="company in companies" href="#/app/company/{{company.id}}/{{company.name}}">
-        {{company.name}}
+      <ion-item ng-repeat="branch in branches" href="#/app/company/{{branch.id}}/{{branch.companyId}}">
+        {{branch.name}}
       </ion-item>
     </ion-list>
   </ion-content>

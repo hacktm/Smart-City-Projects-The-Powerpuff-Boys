@@ -1,7 +1,4 @@
-<ion-view title="{{companyName}}">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
+<ion-view title="{{name}}">
   <ion-nav-buttons side="right">
 	<a href="#/app/search"><button class="button button-icon icon ion-search"></button></a>
   </ion-nav-buttons>
@@ -11,15 +8,15 @@
 		Description
 	  </div>
 	  <div class="item item-text-wrap">
-		{{companyDesc}}
+		{{description}}
 	  </div>
 	</div>
 	<div class="list card">
-	  <a href="#/app/tickets/:comapnyId/1" class="item item-icon-left">
+	  <a href="#/app/tickets/:branchId/1" class="item item-icon-left">
 		<i class="icon ion-paper-airplane"></i>
 		Proposals
 	  </a>
-	  <a href="#/app/tickets/:comapnyId/2" class="item item-icon-left">
+	  <a href="#/app/tickets/:branchId/2" class="item item-icon-left">
 		<i class="icon ion-alert-circled"></i>
 		Complaints
 	  </a>
