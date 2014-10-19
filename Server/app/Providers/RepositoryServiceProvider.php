@@ -1,6 +1,7 @@
 <?php namespace SpreadOut\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use SpreadOut\SmsNotifier\TwilioSms;
 
 class RepositoryServiceProvider extends ServiceProvider {
 
@@ -35,5 +36,13 @@ class RepositoryServiceProvider extends ServiceProvider {
             'SpreadOut\Repositories\TokenContract',
             'SpreadOut\Repositories\Eloquent\TokenRepository'
         );
+
+        /** Register and configure twilio */
+
+        $this->app->bind('SpreadOut\SmsNotifier\SmsNotifierContract', function ($app)
+        {
+            return new TwilioSms(new \Services_Twilio(getenv('TWILIO_ACCOUNT_SID'),
+                getenv('TWILIO_AUTH_TOKEN')), getenv('TWILIO_NUMBER'));
+        });
     }
 }

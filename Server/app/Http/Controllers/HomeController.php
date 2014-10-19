@@ -10,7 +10,7 @@ class HomeController extends Controller {
 
 	/**
 	 * @Get("/")
-     * @Middleware("auth")
+     * #Middleware("auth")
 	 */
 	public function index()
 	{

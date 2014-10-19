@@ -30,7 +30,3 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
     });
 });
 
-DB::listen(function($sql, $bindings, $time)
-{
-    var_dump($sql);
-});
