@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder {
 
     protected $tables = [
+        'County' => ['cities', 'counties'],
         'City' => ['cities'],
         'Person' => ['users', 'persons'],
         'Tag' => ['companies', 'tags'],

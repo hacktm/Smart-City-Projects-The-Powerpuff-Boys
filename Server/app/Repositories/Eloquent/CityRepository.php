@@ -24,6 +24,34 @@ class CityRepository extends AbstractRepository implements CityContract {
     }
 
     /**
+     * Search city
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function search(array $data)
+    {
+        $find = $this->model;
+
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
+        if (isset($data['name']))
+        {
+            $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        if (isset($data['county_id']))
+        {
+            $find = $find->where('county_id', $data['county']);
+        }
+
+        return $this->toArray($find->get());
+    }
+
+    /**
      * @param array $data
      * @return array
      */

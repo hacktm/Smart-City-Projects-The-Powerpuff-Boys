@@ -1,16 +1,39 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
-use SpreadOut\City;
+use SpreadOut\County;
 use SpreadOut\Repositories\CountyContract;
 
 class CountyRepository extends AbstractRepository implements CountyContract {
 
     /**
-     * @param City $model
+     * @param County $model
      */
-    public function __construct(City $model)
+    public function __construct(County $model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * Search city
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function search(array $data)
+    {
+        $find = $this->model;
+
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
+        if (isset($data['name']))
+        {
+            $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        return $this->toArray($find->get());
     }
 
     /**

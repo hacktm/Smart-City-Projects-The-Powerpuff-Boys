@@ -39,7 +39,7 @@ class CountyTableSeeder extends Seeder {
             $isCreated = $this->county->create([
                 'name' => $county
             ]);
-            echo ! $isCreated ?: sprintf('County %s created !%s', $city, PHP_EOL);
+            echo ! $isCreated ?: sprintf('County %s created !%s', $county, PHP_EOL);
         }
     }
 

@@ -33,6 +33,16 @@ class RepositoryServiceProvider extends ServiceProvider {
         );
 
         $this->app->bind(
+            'SpreadOut\Repositories\CountyContract',
+            'SpreadOut\Repositories\Eloquent\CountyRepository'
+        );
+
+        $this->app->bind(
+            'SpreadOut\Repositories\CityContract',
+            'SpreadOut\Repositories\Eloquent\CityRepository'
+        );
+
+        $this->app->bind(
             'SpreadOut\Repositories\TokenContract',
             'SpreadOut\Repositories\Eloquent\TokenRepository'
         );
