@@ -14,12 +14,14 @@ class BranchRepository extends AbstractRepository implements BranchContract {
     }
 
     /**
+     * Find branch by id
+     *
      * @param $id
      * @return mixed
      */
     public function findById($id)
     {
-        return $this->where('id', $id)->first();
+        return $this->toArray($this->model->where('id', $id)->first());
     }
 
     /**
