@@ -55,7 +55,7 @@ angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
     })
 	
 	.state('app.company', {
-      url: "/company/:companyId/:comapnyName",
+      url: "/company/:companyId/:companyName",
       views: {
         'menuContent' :{
           templateUrl: "templates/company.html",
@@ -70,6 +70,16 @@ angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
         'menuContent' :{
           templateUrl: "templates/ticket.html",
 		  controller: "TicketController"
+        }
+      }
+    })
+	
+	.state('app.tickets', {
+      url: "/tickets/:branchId/:ticketType",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/tickets.html",
+		  controller: "TicketsController"
         }
       }
     })

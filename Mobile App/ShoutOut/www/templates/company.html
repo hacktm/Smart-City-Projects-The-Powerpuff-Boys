@@ -6,16 +6,23 @@
 	<a href="#/app/search"><button class="button button-icon icon ion-search"></button></a>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <ion-list>
-	  <ion-item ng-if="!loaded">
-		<p align="center"><button class="button button-icon icon ion-refreshing"></button></p>
-	  </ion-item>
-	  <ion-item ng-if="noItems">
-		<p align="center" disabled>No Results</p>
-	  </ion-item>
-      <ion-item ng-repeat="ticket in tickets" href="#/app/ticket/{{ticket.id}}/{{ticket.Name}}">
-        {{ticket.name}}
-      </ion-item>
-    </ion-list>
+	<div class="card">
+	  <div class="item item-divider">
+		Description
+	  </div>
+	  <div class="item item-text-wrap">
+		{{companyDesc}}
+	  </div>
+	</div>
+	<div class="list card">
+	  <a href="#/app/tickets/:comapnyId/1" class="item item-icon-left">
+		<i class="icon ion-paper-airplane"></i>
+		Proposals
+	  </a>
+	  <a href="#/app/tickets/:comapnyId/2" class="item item-icon-left">
+		<i class="icon ion-alert-circled"></i>
+		Complaints
+	  </a>
+	</div>
   </ion-content>
 </ion-view>
