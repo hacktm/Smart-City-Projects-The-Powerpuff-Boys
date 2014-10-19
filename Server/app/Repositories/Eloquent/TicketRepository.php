@@ -24,6 +24,7 @@ class TicketRepository extends AbstractRepository implements TicketContract {
         $ticket = $this->getNew();
         $ticket->title = $data['title'];
         $ticket->type = $data['type'];
+        $ticket->person_id = $data['person_id'];
         $ticket->description = $data['description'];
         $ticket->status = 'opened';
         $ticket->save();

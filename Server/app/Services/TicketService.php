@@ -32,9 +32,9 @@ class TicketService {
      * @throws ApiException
      * @return mixed
      */
-    public function create($user, $data)
+    public function create($person, $data)
     {
-        $data['user_id'] = $user;
+        $data['person_id'] = $person;
 
         $ticket = $this->ticket->create($data);
 

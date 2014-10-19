@@ -74,10 +74,6 @@ class PersonService {
             throw new ApiException('Authentication failed. Wrong user token provided !', 422);
         }
 
-        // Store the user in the ioC container
-        $app = app();
-        $app['user'] = $user;
-
         return $user;
     }
 
