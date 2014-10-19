@@ -31,9 +31,9 @@ class AuthMiddleware implements Middleware {
 
         if (Input::has('x-token'))
         {
-            $token = Input::has('x-token');
+            $token = Input::get('x-token');
         }
-        
+
         $user = $this->person->login($token);
 
         // Store the user in the ioc Container
