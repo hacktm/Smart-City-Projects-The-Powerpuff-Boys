@@ -13,8 +13,13 @@ return {
 			callback(response);
 		});
 	},
-	categories: function(callback) {
-		$http.get(URL + "search/tag").success(function (response) {
+	categories: function(cityId, callback) {
+		$http.get(URL + "search/tag?city=" + cityId).success(function (response) {
+			callback(response);
+		});
+	},
+	branches: function(cityId, categoryId, callback) {
+		$http.get(URL + "search/tag?city=" + cityId + "&id=" + categoryId).success(function (response) {
 			callback(response);
 		});
 	},

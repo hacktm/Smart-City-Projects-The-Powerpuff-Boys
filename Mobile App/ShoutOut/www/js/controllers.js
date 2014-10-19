@@ -108,6 +108,8 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		
 		$scope.selectCityTitle = "Done!";
 		$scope.closeSelectCity();
+		
+		location.reload();
 	}
   };
 })
@@ -136,17 +138,26 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 	$scope.loaded = false;
 	$scope.noItems = false;
 	
-	NetDB.categories(function(data) { 
+	NetDB.categories(window.localStorage["cityId"], function(data) { 
 		if (!data || data.length == 0) {
 			$scope.noItems = true;
 		} else {
-			$scope.categories = data;
+			$scope.categories = [];
+			for (var i=0; i<data.length; i++) {
+				if (data[i].branches.length > 0) {
+					$scope.categories.push({id:data[i].id, name:data[i].name});
+				}
+			}
+			if ($scope.categories.length == 0) {
+				$scope.noItems = true;
+			}
 		}
 		$scope.loaded = true;
 	});
 })
 
 .controller('CategoryController', function($scope, $stateParams) {
+	$scope.categoryId = $stateParams.categoryId;
 	$scope.categoryName = $stateParams.categoryName;
 	
 	$scope.companies = [];
@@ -166,7 +177,7 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 	$scope.companyDesc = "This is a Description.";
 })
 
-.controller('TicketsController', function($scope, $stateParams) {
+.controller('TicketsController', function($scope, $ionicModal, $stateParams) {
 	$scope.branchId = $stateParams.branchId;
 	$scope.ticketType = $stateParams.ticketType;
 	$scope.ticketTypeName = $stateParams.ticketType == 1 ? "Proposal" : "Complaint";
@@ -180,18 +191,40 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		{id:2, name:"Ticket 2"},
 	];
 	
+	$ionicModal.fromTemplateUrl('templates/newTicket.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.newTicketModal = modal;
+	});
+	
 	$scope.createNew = function()
 	{
 		if (window.localStorage["loggedIn"] == "false") {
 			alert("You must Login before you can Create New Tickets.");
 		} else {
-			//modal
+			if ($scope.newTicket) {
+				$scope.newTicket.title = "";
+				$scope.newTicket.shortD = "";
+				$scope.newTicket.description = "";
+			}
+			$scope.newTicketModal.show();
 		}
+	};
+	
+	$scope.closeNewTicketModal = function()
+	{
+		$scope.newTicketModal.hide();
+	};
+	
+	$scope.doNewTicket = function()
+	{
+		console.log($scope.newTicket);
 	};
 })
 
 .controller('TicketController', function($scope, $stateParams) {
 	$scope.ticketName = $stateParams.ticketName;
+	
 })
 
 .controller('MyTicketsController', function($scope, $stateParams) {
