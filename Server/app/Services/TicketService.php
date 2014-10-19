@@ -42,7 +42,7 @@ class TicketService {
      */
     public function create($person, $data)
     {
-        $branch = $this->branch->findById($data['branch_id']);
+        $branch = $this->branch->findById($data['branch']);
 
         if ( ! $branch)
         {
