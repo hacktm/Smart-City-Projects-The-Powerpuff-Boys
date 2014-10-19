@@ -7,7 +7,7 @@
   </ion-header-bar>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="item in selectCityList" ng-click="itemSelected(item.id)">
+      <ion-item ng-repeat="item in selectCityList" ng-click="itemSelected(item.id, item.name)">
         {{item.name}}
       </ion-item>
     </ion-list>

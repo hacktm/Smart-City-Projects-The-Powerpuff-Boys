@@ -4,11 +4,20 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
   if (window.localStorage["loggedIn"])
 	$scope.loggedIn = window.localStorage["loggedIn"] || false;
   else {
-	window.localStorage["loggedIn"] = false;
+	window.localStorage["loggedIn"] = "false";
 	$scope.loggedIn = false;
   }
-  $scope.auth_action = $scope.loggedIn == true ? "Logout" : "Login";
-	
+  $scope.auth_action = $scope.loggedIn == "true" ? "Logout" : "Login";
+  if (window.localStorage["cityId"]) {
+    $scope.city_id = window.localStorage["cityId"];
+	$scope.city_name = window.localStorage["cityName"];
+  } else {
+    window.localStorage["cityId"] = "0";
+	$scope.city_id = 0;
+	window.localStorage["cityName"] = "Select a City!";
+	$scope.city_name = "Select a City!";
+  }
+  
   // Login Logic
    
   $scope.loginData = {};
@@ -43,13 +52,13 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
       $scope.closeLogin();
     }, 1000);
 	
-	window.localStorage["loggedIn"] = true;
+	window.localStorage["loggedIn"] = "true";
 	$scope.loggedIn = true;
 	$scope.auth_action = "Logout";
   };
   
   $scope.doLogout = function() {
-	window.localStorage["loggedIn"] = false;
+	window.localStorage["loggedIn"] = "false";
     $scope.loggedIn = false;
     $scope.auth_action = "Login";
   };
@@ -79,7 +88,7 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
     $scope.selectCityModal.hide();
   };
   
-  $scope.itemSelected = function(itemId) {
+  $scope.itemSelected = function(itemId, itemName) {
 	if ($scope.countyId == -1) {
 		// A County was Selected
 		// Get Cities
@@ -92,8 +101,11 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 	} else {
 		// A City was Selected
 		// Load City
-		window.localStorage["city"] = itemId;
-		$scope.cityId = itemId;
+		window.localStorage["cityId"] = itemId;
+		$scope.city_id = itemId;
+		window.localStorage["cityName"] = itemName;
+		$scope.city_name = itemName;
+		
 		$scope.selectCityTitle = "Done!";
 		$scope.closeSelectCity();
 	}
@@ -103,17 +115,18 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 .controller('SearchController', function($scope, $stateParams, NetDB) {
 	$scope.resuls = [];
 	$scope.loaded = true;
-	$scope.noItems = false;
 	
 	$scope.execute = function(query) {
 		$scope.loaded = false;
-		NetDB.search(query.query, window.localStorage["city"], function(data) { 
+		$scope.noItems = false;
+			
+		NetDB.search(query.query, window.localStorage["cityId"], function(data) { 
 			if  (!data || data.length == 0) {
 				$scope.noItems = true;
 			} else {
 				$scope.results = data;
-				$scope.loaded = true;
 			}
+			$scope.loaded = true;
 		});
 	};
 })
@@ -128,8 +141,8 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 			$scope.noItems = true;
 		} else {
 			$scope.categories = data;
-			$scope.loaded = true;
 		}
+		$scope.loaded = true;
 	});
 })
 
@@ -147,7 +160,16 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 })
 
 .controller('CompanyController', function($scope, $stateParams) {
+	$scope.companyId = $stateParams.companyId;
 	$scope.companyName = $stateParams.companyName;
+	
+	$scope.companyDesc = "This is a Description.";
+})
+
+.controller('TicketsController', function($scope, $stateParams) {
+	$scope.branchId = $stateParams.branchId;
+	$scope.ticketType = $stateParams.ticketType;
+	$scope.ticketTypeName = $stateParams.ticketType == 1 ? "Proposal" : "Complaint";
 	
 	$scope.tickets = [];
 	$scope.loaded = false;
@@ -157,6 +179,15 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		{id:1, name:"Ticket 1"},
 		{id:2, name:"Ticket 2"},
 	];
+	
+	$scope.createNew = function()
+	{
+		if (window.localStorage["loggedIn"] == "false") {
+			alert("You must Login before you can Create New Tickets.");
+		} else {
+			//modal
+		}
+	};
 })
 
 .controller('TicketController', function($scope, $stateParams) {

@@ -1,0 +1,22 @@
+<ion-view title="{{ticketTypeName}}">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+  	<button class="button button-icon icon ion-plus" ng-click="createNew();"></button>
+	<a href="#/app/search"><button class="button button-icon icon ion-search"></button></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-list>
+	  <ion-item ng-if="!loaded">
+		<p align="center"><button class="button button-icon icon ion-refreshing"></button></p>
+	  </ion-item>
+	  <ion-item ng-if="noItems">
+		<p align="center" disabled>No Results</p>
+	  </ion-item>
+      <ion-item ng-repeat="ticket in tickets" href="#/app/ticket/{{ticket.id}}/{{ticket.Name}}">
+        {{ticket.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
