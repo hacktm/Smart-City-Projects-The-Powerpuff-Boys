@@ -14,16 +14,20 @@
     <ion-content class="has-header">
       <ion-list>
 	    <ion-item nav-clear menu-close ng-click="authBtnClick()">
-          {{auth_action}}
+			<i class="icon ion-home"></i>
+			&nbsp;{{auth_action}}
         </ion-item>
         <ion-item nav-clear menu-close ng-click="showSelectCity()">
-          Select City
+			<i class="icon ion-location"></i>
+			&nbsp;Select City
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/categories">
-          Browse
+			<i class="icon ion-ios7-folder"></i>
+			&nbsp;Browse
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/mytickets">
-          My Tickets
+			<i class="icon ion-ios7-paper"></i>
+			&nbsp;My Tickets
         </ion-item>
       </ion-list>
     </ion-content>
