@@ -1,6 +1,7 @@
 <?php namespace SpreadOut\Http\Controllers\Api;
 
 use Illuminate\Support\Facades\Input;
+use SpreadOut\Http\Requests\Auth\BranchRequest;
 use SpreadOut\Services\TicketService;
 
 class TicketController extends ApiController {
@@ -19,7 +20,14 @@ class TicketController extends ApiController {
         $this->ticket = $ticket;
     }
 
-    public function create()
+    /**
+     * Create a ticket
+     *
+     * @param BranchRequest $request
+     * @throws \SpreadOut\Exceptions\ApiException
+     * @return mixed
+     */
+    public function create(BranchRequest $request)
     {
         $input = Input::all();
 

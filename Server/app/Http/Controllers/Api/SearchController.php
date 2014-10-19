@@ -4,6 +4,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use SpreadOut\Services\CompanyService;
 use SpreadOut\Services\LocationService;
+use SpreadOut\Services\TicketService;
 
 class SearchController extends Controller {
     /**
@@ -14,15 +15,20 @@ class SearchController extends Controller {
      * @var LocationService
      */
     private $location;
+    /**
+     * @var TicketService
+     */
+    private $ticket;
 
     /**
      * @param CompanyService $company
      * @param LocationService $location
      */
-    public function __construct(CompanyService $company, LocationService $location)
+    public function __construct(CompanyService $company, LocationService $location, TicketService $ticket)
     {
         $this->company = $company;
         $this->location = $location;
+        $this->ticket = $ticket;
     }
 
     /**
@@ -32,9 +38,7 @@ class SearchController extends Controller {
      */
     public function branch()
     {
-        $input = Input::all();
-
-        return $this->company->searchBranch($input);
+        return $this->company->searchBranch(Input::all());
     }
 
     /**
@@ -44,9 +48,7 @@ class SearchController extends Controller {
      */
     public function company()
     {
-        $input = Input::all();
-
-        return $this->company->search($input);
+        return $this->company->search(Input::all());
     }
 
     /**
@@ -56,9 +58,7 @@ class SearchController extends Controller {
      */
     public function county()
     {
-        $input = Input::all();
-
-        return $this->location->searchCounty($input);
+        return $this->location->searchCounty(Input::all());
     }
 
     /**
@@ -68,9 +68,7 @@ class SearchController extends Controller {
      */
     public function city()
     {
-        $input = Input::all();
-
-        return $this->location->searchCity($input);
+        return $this->location->searchCity(Input::all());
     }
 
     /**
@@ -80,8 +78,14 @@ class SearchController extends Controller {
      */
     public function tag()
     {
-        $input = Input::all();
+        return $this->company->searchTags(Input::all());
+    }
 
-        return $this->company->searchTags($input);
+    /**
+     * @return mixed
+     */
+    public function ticket()
+    {
+        return $this->ticket->search(Input::all());
     }
 }

@@ -14,7 +14,8 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
     {
         Route::post('token', 'AuthController@personToken');
         Route::post('register', 'AuthController@registerPerson');
-        Route::post('ticket', 'TicketController@create');
+        Route::get('tickets', 'TicketController@list');
+        Route::post('tickets', 'TicketController@create');
     });
 
     Route::group(['prefix' => 'company'], function ()
@@ -30,6 +31,7 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
         Route::get('tag', 'SearchController@tag');
         Route::get('county', 'SearchController@county');
         Route::get('city', 'SearchController@city');
+        Route::get('ticket', 'SearchController@ticket');
     });
 });
 
