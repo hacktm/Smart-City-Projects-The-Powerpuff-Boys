@@ -12,9 +12,9 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
 {
     Route::group(['prefix' => 'person'], function ()
     {
-        Route::any('token', 'AuthController@personToken');
-        Route::any('register', 'AuthController@registerPerson');
-        Route::get('ticket', 'TicketController@create');
+        Route::post('token', 'AuthController@personToken');
+        Route::post('register', 'AuthController@registerPerson');
+        Route::post('ticket', 'TicketController@create');
     });
 
     Route::group(['prefix' => 'company'], function ()
