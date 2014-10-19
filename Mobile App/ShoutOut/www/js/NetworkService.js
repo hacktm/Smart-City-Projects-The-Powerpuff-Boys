@@ -13,6 +13,11 @@ return {
 			callback(response);
 		});
 	},
+	categories: function(callback) {
+		$http.get(URL + "search/tag").success(function (response) {
+			callback(response);
+		});
+	},
 	search: function(name, city, callback) {
 		var url = URL + "search/branch?";
 		if (name && city) url += "name=" + name + "&city=" + city;
