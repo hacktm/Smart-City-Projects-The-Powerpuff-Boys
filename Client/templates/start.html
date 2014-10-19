@@ -1,0 +1,63 @@
+<div class="spr-wide-section spr-bg-ppl">
+    <div class="container spr-main-container">
+        <div class="row">
+            <div class="col-lg-8" ng-class="{'col-lg-offset-2' : user}">
+                <h1 class="spr-heading spr-extra-heading" l10n-text="_hello_"></h1>
+                <h1 class="spr-heading" l10n-text="_what_are_you_looking_for_"></h1>
+                <div class="big-search" ng-show="!cityIsSelected">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <select ng-hide="cityIsSelected" class="soflow" ng-model="selectedCounty" ng-options="county.id as county.name for county in counties" ng-change="getCities()">
+                            </select>
+                        </div>
+                        <div class="col-lg-5">
+
+                            <select ng-hide="cityIsSelected" ng-show="selectedCounty > 0" class="soflow" ng-model="selectedCity" ng-options="city.id as city.name for city in cities" ng-change="setCity()">
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <a ng-hide="cityIsSelected" ng-show="selectedCity" ng-click="setCity()" class="btn spr-btn-active spr-button " role="button">Go</a>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="big-search" ng-show="cityIsSelected">
+                    <input type="text" class="big-input typeahead" placeholder="Search eg.: Politia comunitara" ng-model="searchBranch"></div>
+                </div>
+
+            <div class="col-lg-4" ng-show="!user">
+                <div class="jumbotron transparent-light">
+                    <p l10n-text="_login_"></p>
+                    <div class="input-group spr-input-group">
+                        <span class="input-group-addon">E-mail:</span>
+                        <input type="text" class="form-control" placeholder="eg. ioana@gmail.com" ng-model="usr.email">
+                    </div>
+                    <div class="input-group spr-input-group">
+                        <span class="input-group-addon" l10n-test="_password_">Password:</span>
+                        <input type="password" class="form-control" ng-model="usr.password">
+                    </div>
+                    <div class="spr-right-align">
+                    <p><a class="spr-anchor" href="#/signup"><span class="spr-span">SIGN UP</span></a> <span class="spr-span">or</span> <a ng-click="login()" class="btn spr-btn-active spr-button" role="button" l10n-text="_login_"></a></p>
+                    </div>
+                    <span l10n-text="_forgot_password_"></span>
+                    <span class="alert-danger" l10n-text="_invalid_cred_" ng-show="invalidCredentials"></span>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="list-group spr-list-group" ng-show="cityIsSelected">
+                    <a ng-href="#!/branch/{{branch.id}}" class="list-group-item" ng-repeat="branch in branches | limitTo: 10 | filter: searchBranch">
+                       {{branch.name}}
+                    </a>
+
+                </div>
+
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</div>
+

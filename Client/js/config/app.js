@@ -1,0 +1,1 @@
+var spreadout = angular.module("spreadout", ["ngResource", "ngRoute", "bmComponents", "ui.bootstrap", "l10n", "l10n-tools"]);
