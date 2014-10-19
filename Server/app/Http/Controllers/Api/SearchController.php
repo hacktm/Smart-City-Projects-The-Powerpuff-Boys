@@ -25,7 +25,7 @@ class SearchController extends Controller {
      */
     public function branch()
     {
-        $input = Input::only('name', 'city');
+        $input = Input::all();
 
         return $this->company->searchBranch($input);
     }
@@ -37,7 +37,7 @@ class SearchController extends Controller {
      */
     public function company()
     {
-        $input = Input::only('name', 'city');
+        $input = Input::all();
 
         return $this->company->search($input);
     }
@@ -49,7 +49,7 @@ class SearchController extends Controller {
      */
     public function tag()
     {
-        $input = Input::only('name');
+        $input = Input::all();
 
         return $this->company->searchTags($input);
     }

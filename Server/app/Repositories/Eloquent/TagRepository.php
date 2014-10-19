@@ -35,6 +35,11 @@ class TagRepository extends AbstractRepository implements TagContract {
     {
         $find = $this->model->with('companies');
 
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
         if (isset($data['name']))
         {
             $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
