@@ -64,6 +64,11 @@ class TicketRepository extends AbstractRepository implements TicketContract {
             $find = $find->where('title', 'LIKE', '%'.$data['name'].'%');
         }
 
+        if (isset($data['type']))
+        {
+            $find = $find->where('type', $data['type']);
+        }
+
         if (isset($data['branch_id']))
         {
             $find = $find->where('branch_id', $data['branch_id']);
