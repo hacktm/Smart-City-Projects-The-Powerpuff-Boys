@@ -24,6 +24,8 @@ class TicketRepository extends AbstractRepository implements TicketContract {
         $ticket = $this->getNew();
         $ticket->title = $data['title'];
         $ticket->type = $data['type'];
+        $ticket->branch_id = $data['branch_id'];
+        $ticket->person_id = $data['person_id'];
         $ticket->description = $data['description'];
         $ticket->status = 'opened';
         $ticket->save();
@@ -40,6 +42,34 @@ class TicketRepository extends AbstractRepository implements TicketContract {
     public function find($id)
     {
         return $this->toArray($this->with('events')->where('id', $id)->get());
+    }
+
+    /**
+     * Search for a ticket
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function search(array $data)
+    {
+        $find = $this->model;
+
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
+        if (isset($data['name']))
+        {
+            $find = $find->where('title', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        if (isset($data['branch_id']))
+        {
+            $find = $find->where('branch_id', $data['branch_id']);
+        }
+
+        return $this->toArray($find->get());
     }
 
     /**

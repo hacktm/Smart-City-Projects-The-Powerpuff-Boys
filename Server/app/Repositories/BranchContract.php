@@ -3,6 +3,14 @@
 interface BranchContract {
 
     /**
+     * Find branch by id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function findById($id);
+
+    /**
      * Create a branch
      *
      * @param array $data

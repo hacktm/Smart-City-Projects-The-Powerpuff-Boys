@@ -11,6 +11,13 @@ class PersonTableSeeder extends Seeder {
      */
     protected $persons = [
         [
+            'email' => 'demo',
+            'password' => 'demo',
+            'phone' => '0740003333',
+            'firstname' => 'Demo',
+            'lastname' => 'Account'
+        ],
+        [
             'email' => 'dev',
             'password' => 'dev',
             'phone' => '321321321',

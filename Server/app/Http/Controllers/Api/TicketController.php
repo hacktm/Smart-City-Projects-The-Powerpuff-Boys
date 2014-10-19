@@ -1,10 +1,10 @@
 <?php namespace SpreadOut\Http\Controllers\Api;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use SpreadOut\Http\Requests\BranchRequest;
 use SpreadOut\Services\TicketService;
 
-class TicketController extends Controller {
+class TicketController extends ApiController {
     /**
      * @var TicketService
      */
@@ -15,13 +15,22 @@ class TicketController extends Controller {
      */
     public function __construct(TicketService $ticket)
     {
+        $this->middleware('auth');
+
         $this->ticket = $ticket;
     }
 
-    public function create()
+    /**
+     * Creates a ticket
+     *
+     * @param BranchRequest $request
+     * @return mixed
+     * @throws \SpreadOut\Exceptions\ApiException
+     */
+    public function create(BranchRequest $request)
     {
         $input = Input::all();
 
-        return $this->ticket->create($input);
+        return $this->ticket->create($this->user()['id'], $input);
     }
 }

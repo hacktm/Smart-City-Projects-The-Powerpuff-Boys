@@ -9,10 +9,14 @@ class CountyTableSeeder extends Seeder {
     /**
      * @var array
      */
-    protected $counties = [
-        'Timis',
-        'Ilfov',
-        'Galati',
+    protected $counties = ['Alba Iulia', 'Arad', 'Pitesti', 'Bacau',
+        'Oradea', 'Bistrita', 'Botosani', 'Brasov', 'Braila', 'Buzau', 'Resita',
+        'Calarasi', 'Cluj-Napoca', 'Constanta', 'Sfantu Gheorghe', 'Targoviste',
+        'Craiova', 'Galati', 'Giurgiu', 'Targu Jiu', 'Miercurea Ciuc', 'Deva',
+        'Slobozia', 'Iasi', 'Bucuresti', 'Baia Mare', 'Drobeta-Turnu Severin',
+        'Targu Mures', 'Piatra Neamt', 'Slatina', 'Ploiesti', 'Satu Mare', 'Zalau',
+        'Sibiu', 'Suceava', 'Alexandria', 'Timisoara', 'Tulcea', 'Vaslui',
+        'Ramnicu Valcea', 'Focsani'
     ];
 
     /**

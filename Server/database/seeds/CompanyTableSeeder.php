@@ -5,7 +5,6 @@ use SpreadOut\Repositories\BranchContract;
 use SpreadOut\Repositories\Eloquent\CityRepository;
 use SpreadOut\Repositories\TagContract;
 use SpreadOut\Services\CompanyService;
-use SpreadOut\Services\PersonService;
 
 class CompanyTableSeeder extends Seeder {
 
@@ -13,7 +12,7 @@ class CompanyTableSeeder extends Seeder {
      * @var array
      */
     protected $companies = [
-        'Politie', 'Pompieri', 'Primarie', 'Spiru Haret'
+        'Primaria', 'Politia'
     ];
 
     /**

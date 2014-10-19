@@ -5,8 +5,13 @@ use SpreadOut\Repositories\UserContract;
 
 class ApiController extends Controller {
 
-    public function __construct(UserContract $user)
+    /**
+     * Get authenticated user
+     *
+     * @return mixed
+     */
+    public function user()
     {
-        var_dump($this->user->token('ionutxp', 'parola'));
+        return app('user');
     }
 }

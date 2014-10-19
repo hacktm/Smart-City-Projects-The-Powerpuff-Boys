@@ -26,8 +26,10 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
         $company->name = $data['name'];
         $company->cui = $data['cui'];
 
-        if (isset($data['city_id'])) // Marked as optional
+        if (isset($data['city_id']))
+        {
             $company->city_id = $data['city_id'];
+        }
 
         $company->save();
 
@@ -38,7 +40,7 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
      * Get branches by name
      *
      * @param array $data
-     * @return bool|mixed
+     * @return mixed
      */
     public function search(array $data)
     {
@@ -47,6 +49,11 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
         if (isset($data['id']))
         {
             $find = $find->where('id', $data['id']);
+        }
+
+        if (isset($data['cui']))
+        {
+            $find = $find->where('cui', $data['cui']);
         }
 
         if (isset($data['name']))
