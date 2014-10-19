@@ -32,12 +32,23 @@ class TicketRepository extends AbstractRepository implements TicketContract {
     }
 
     /**
+     *
+     *
+     * @param $id
+     * @return bool
+     */
+    public function find($id)
+    {
+        return $this->toArray($this->with('events')->where('id', $id)->get());
+    }
+
+    /**
      * Get all the tags
      *
      * @return \Illuminate\Database\Eloquent\Collection|mixed
      */
     public function all()
     {
-        return $this->toArray($this->model->all());
+        return $this->toArray($this->model->with('events')->get());
     }
 }

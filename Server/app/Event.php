@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model {
+class Event extends Model {
 
     /**
      * @var bool
@@ -13,15 +13,15 @@ class Ticket extends Model {
      *
      * @var string
      */
-    protected $table = 'tickets';
+    protected $table = 'ticket_events';
 
     /**
-     * Get ticket events
+     * Get ticket
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function events()
+    public function ticket()
     {
-        return $this->hasMany('SpreadOut\Event');
+        return $this->hasOne('SpreadOut\Ticket');
     }
 }
