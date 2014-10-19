@@ -17,9 +17,8 @@ class CreateTicketsTable extends Migration {
             $table->increments('id');
             $table->enum('type', ['complain', 'proposal']);
             $table->text('title');
-            $table->text('short_description');
             $table->text('description');
-            $table->enum('status', ['opened', 'pending', 'assigned', 'solved', 'duplicate', 'refused']);
+            $table->enum('status', ['opened', 'pending', 'assigned', 'solved', 'duplicate', 'refused'])->default('opened');
             $table->float('lat');
             $table->float('lon');
         });
