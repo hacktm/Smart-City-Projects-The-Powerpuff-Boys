@@ -24,4 +24,14 @@ class Ticket extends Model {
     {
         return $this->hasMany('SpreadOut\Event');
     }
+
+    /**
+     * Find all the followers
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function persons()
+    {
+        return $this->hasOne('SpreadOut\Person');
+    }
 }
