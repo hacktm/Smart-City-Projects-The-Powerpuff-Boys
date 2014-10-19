@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	protected $middleware = [
 		'auth' => 'SpreadOut\Http\Middleware\AuthMiddleware',
-		//'auth.basic' => 'SpreadOut\Http\Middleware\BasicAuthMiddleware',
+        'public-auth' => 'SpreadOut\Http\Middleware\PublicAuthMiddleware',
 		'csrf' => 'SpreadOut\Http\Middleware\CsrfMiddleware',
 		'guest' => 'SpreadOut\Http\Middleware\GuestMiddleware',
 	];
@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider {
 		'Illuminate\Session\Middleware\Reader',
 		'Illuminate\Session\Middleware\Writer',
 		'Illuminate\View\Middleware\ErrorBinder',
-		'SpreadOut\Http\Middleware\CsrfMiddleware',
+		//'SpreadOut\Http\Middleware\CsrfMiddleware',
 	];
 
 	/**

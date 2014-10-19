@@ -14,6 +14,17 @@ class BranchRepository extends AbstractRepository implements BranchContract {
     }
 
     /**
+     * Find branch by id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function findById($id)
+    {
+        return $this->toArray($this->model->where('id', $id)->first());
+    }
+
+    /**
      * Get branches by name
      *
      * @param array $data
@@ -22,27 +33,70 @@ class BranchRepository extends AbstractRepository implements BranchContract {
 
     public function search(array $data)
     {
-        $this->model->where('name', 'LIKE', '%'.$data['name'].'%');
+        $find = $this->model;
+
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
+        if (isset($data['name']))
+        {
+           $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        if (isset($data['company']))
+        {
+            $find = $find->where('company_id', $data['company']);
+        }
 
         if (isset($data['city']))
         {
-            $this->model->where('city_id', $data['city']);
+            $find = $find->where('city_id', $data['city']);
         }
 
-        return $this->toArray($this->model->get());
+        return $this->toArray($find->get());
+    }
+
+    /**
+     * Attach a tag to a company
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function attachTag(array $data)
+    {
+        $this->model->find($data['branch_id'])->tags()->attach($data['tag_id']);
+
+        return true;
+    }
+
+    /**
+     * Attach a tag to a company
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function detachTag(array $data)
+    {
+        $this->model->find($data['branch_id'])->tags()->detach($data['tag_id']);
+
+        return true;
     }
 
     /**
      * Create branch
      *
      * @param array $data
-     * @return mixed|void
+     * @return mixed
      */
     public function create(array $data)
     {
         $branch = $this->getNew();
         $branch->name = $data['name'];
+        $branch->city_id = $data['city_id'];
         $branch->company_id = $data['company_id'];
+        $branch->save();
 
         return $this->toArray($branch);
     }

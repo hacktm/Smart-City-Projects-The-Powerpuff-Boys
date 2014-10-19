@@ -1,0 +1,23 @@
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\ShoutOut PublicAPI Library.dll.config
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\ShoutOut PublicAPI Library.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\ShoutOut PublicAPI Library.pdb
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.IO.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Net.Http.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Runtime.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Threading.Tasks.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.IO.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Net.Http.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Runtime.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\bin\Debug\System.Threading.Tasks.xml
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\obj\Debug\ShoutOut PublicAPI Library.csproj.App.config
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\obj\Debug\ShoutOut PublicAPI Library.csprojResolveAssemblyReference.cache
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\obj\Debug\ShoutOut PublicAPI Library.dll
+C:\Users\crisdorya1994\Desktop\New folder\ShoutOut PublicAPI Library\ShoutOut PublicAPI Library\obj\Debug\ShoutOut PublicAPI Library.pdb

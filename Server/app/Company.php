@@ -10,4 +10,14 @@ class Company extends Model {
      * @var string
      */
     protected $table = 'companies';
+
+    /**
+     * Get company tags
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('SpreadOut\Tag');
+    }
 }

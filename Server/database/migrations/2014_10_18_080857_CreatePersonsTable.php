@@ -16,8 +16,10 @@ class CreatePersonsTable extends Migration {
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('city_id')->unsigned();
             $table->string('firstname', 100);
             $table->string('lastname', 100);
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('user_id')->references('id')->on('users');
         });
 	}
@@ -31,6 +33,7 @@ class CreatePersonsTable extends Migration {
 	{
         Schema::table('persons', function (Blueprint $table)
         {
+            $table->dropForeign('persons_city_id_foreign');
             $table->dropForeign('persons_user_id_foreign');
         });
 

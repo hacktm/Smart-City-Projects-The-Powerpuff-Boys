@@ -3,6 +3,22 @@
 interface CompanyContract {
 
     /**
+     * Create a new user
+     *
+     * @param array $data
+     * @return mixed
+     */
+
+    public function create(array $data);
+    /**
+     * Search for companies by name
+     *
+     * @param array $data
+     * @return mixed
+     */
+
+    public function search(array $data);
+    /**
      * Find company by cui
      *
      * @param $cui
@@ -17,4 +33,5 @@ interface CompanyContract {
      * @return mixed
      */
     public function findByName($name);
+
 }

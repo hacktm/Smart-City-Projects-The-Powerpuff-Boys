@@ -25,11 +25,50 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
         $company->user_id = $data['user_id'];
         $company->name = $data['name'];
         $company->cui = $data['cui'];
-        $company->active = $data['active'];
+
+        if (isset($data['city_id']))
+        {
+            $company->city_id = $data['city_id'];
+        }
+
         $company->save();
 
         return $this->toArray($company);
     }
+
+    /**
+     * Get branches by name
+     *
+     * @param array $data
+     * @return mixed
+     */
+    public function search(array $data)
+    {
+        $find = $this->model;
+
+        if (isset($data['id']))
+        {
+            $find = $find->where('id', $data['id']);
+        }
+
+        if (isset($data['cui']))
+        {
+            $find = $find->where('cui', $data['cui']);
+        }
+
+        if (isset($data['name']))
+        {
+            $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+
+        if (isset($data['city']))
+        {
+            $find = $find->where('city_id', $data['city']);
+        }
+
+        return $this->toArray($find->get());
+    }
+
     /**
      * Find company by cui
      *

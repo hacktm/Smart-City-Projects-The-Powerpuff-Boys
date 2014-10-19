@@ -40,10 +40,14 @@ class PersonService {
      */
     public function create($data)
     {
+        $data['type'] = 'company';
+
+        // Creates the credentials
         $user = $this->user->create($data);
 
         $data['user_id'] = $user['id'];
 
+        // Creates the profile
         $person = $this->person->create($data);
 
         if ( ! $person)
@@ -67,10 +71,18 @@ class PersonService {
 
         if ( ! $user)
         {
-            throw new ApiException('Wrong user token !', 422);
+            throw new ApiException('Authentication failed. Wrong user token provided !', 422);
         }
 
         return $user;
+    }
+
+    /**
+     * @param $token
+     */
+    public function logout($token)
+    {
+        return $this->token->deleteByToken($token);
     }
 
     /**
@@ -95,6 +107,8 @@ class PersonService {
             'type'    => 'person'
         ]);
 
-        return $token;
+        $user['token'] = $token['token'];
+
+        return $user;
     }
 }

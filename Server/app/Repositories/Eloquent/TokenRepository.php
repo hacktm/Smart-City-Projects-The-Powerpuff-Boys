@@ -41,6 +41,17 @@ class TokenRepository extends AbstractRepository implements TokenContract {
     }
 
     /**
+     * Delete by token
+     *
+     * @param $token
+     * @return mixed
+     */
+    public function deleteByToken($token)
+    {
+        return $this->model->where('token', $token)->delete();
+    }
+
+    /**
      * Delete token
      *
      * @param $id

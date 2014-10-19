@@ -1,0 +1,18 @@
+<ion-view title="{{categoryName}}">
+  <ion-nav-buttons side="right">
+	<a href="#/app/search"><button class="button button-icon icon ion-search"></button></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-list>
+	  <ion-item ng-if="!loaded">
+		<p align="center"><button class="button button-icon icon ion-refreshing"></button></p>
+	  </ion-item>
+	  <ion-item ng-if="noItems">
+		<p align="center" disabled>No Results</p>
+	  </ion-item>
+      <ion-item ng-repeat="branch in branches" href="#/app/company/{{branch.id}}/{{branch.companyId}}">
+        {{branch.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
