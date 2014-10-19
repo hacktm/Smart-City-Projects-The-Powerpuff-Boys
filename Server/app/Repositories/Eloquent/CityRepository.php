@@ -43,7 +43,7 @@ class CityRepository extends AbstractRepository implements CityContract {
             $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');
         }
 
-        if (isset($data['county_id']))
+        if (isset($data['county']))
         {
             $find = $find->where('county_id', $data['county']);
         }
