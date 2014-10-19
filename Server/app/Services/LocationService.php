@@ -39,6 +39,6 @@ class LocationService
      */
     public function searchCity(array $data)
     {
-        return $this->county->search($data);
+        return $this->city->search($data);
     }
 }
