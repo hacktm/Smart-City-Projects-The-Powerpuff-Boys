@@ -54,12 +54,12 @@ class TicketService {
 
         $ticket = $this->ticket->create($data);
 
-        $data = $this->event->create([
+        $ticket['event'] = $this->event->create([
             'ticket_id' => $ticket['id'],
             'status' => 'opened'
         ]);
 
-       return $data;
+        return $ticket;
     }
 
     /**
