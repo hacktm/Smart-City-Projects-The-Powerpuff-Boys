@@ -1,9 +1,9 @@
 <?php namespace SpreadOut\Repositories\Eloquent;
 
 use SpreadOut\City;
-use SpreadOut\Repositories\CityContract;
+use SpreadOut\Repositories\CountyContract;
 
-class CityRepository extends AbstractRepository implements CityContract {
+class CountyRepository extends AbstractRepository implements CountyContract {
 
     /**
      * @param City $model
@@ -31,7 +31,6 @@ class CityRepository extends AbstractRepository implements CityContract {
     {
         $city = $this->getNew();
         $city->name = $data['name'];
-        $city->county_id = $data['county_id'];
         $city->save();
 
         return $this->toArray($city);

@@ -42,7 +42,7 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
      */
     public function search(array $data)
     {
-        $find = $this->model->with('tags');
+        $find = $this->model;
 
         if (isset($data['name']))
         {

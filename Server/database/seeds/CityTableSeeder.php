@@ -9,11 +9,8 @@ class CityTableSeeder extends Seeder {
      * @var array
      */
     protected $cities = [
-        'Timisoara',
-        'Galati',
-        'Bucuresti',
-        'Iasi',
-        'Cluj'
+        'Timisoara' => 1,
+        'Galati' => 3,
     ];
 
     /**
@@ -35,10 +32,11 @@ class CityTableSeeder extends Seeder {
      */
     public function run()
     {
-        foreach ($this->cities as $city)
+        foreach ($this->cities as $city => $c)
         {
             $isCreated = $this->city->create([
-                'name' => $city
+                'name' => $city,
+                'county_id' => $c
             ]);
             echo ! $isCreated ?: sprintf('City %s created !%s', $city, PHP_EOL);
         }

@@ -15,7 +15,9 @@ class CreateCitiesTable extends Migration {
 		Schema::create('cities', function (Blueprint $table)
         {
             $table->increments('id');
+            $table->integer('county_id');
             $table->string('name');
+            $table->foreign('county_id')->references('id')->on('counties')->onDelete('cascade');
         });
 	}
 
@@ -26,6 +28,10 @@ class CreateCitiesTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('cities', function (Blueprint $table)
+        {
+            $table->dropForeign('cities_county_id_foreign');
+        });
         Schema::drop('cities');
 	}
 
