@@ -25,11 +25,11 @@ class UserRepository extends AbstractRepository implements UserContract {
         $user->email = $data['email'];
         $user->phone = $data['phone'];
         $user->type = $data['type'];
+        $user->api_token = str_random(40);
         $user->save();
 
         return $this->toArray($user);
     }
-
 
     /**
      * Find user by id
@@ -40,6 +40,15 @@ class UserRepository extends AbstractRepository implements UserContract {
     public function findById($id)
     {
         return $this->toArray($this->model->find($id));
+    }
+
+    /**
+     * @param $token
+     * @return bool
+     */
+    public function findByToken($token)
+    {
+        return $this->toArray($this->model->where('api_token', $token)->get());
     }
 
     /**

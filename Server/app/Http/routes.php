@@ -32,10 +32,19 @@ Route::group(['namespace' => 'SpreadOut\Http\Controllers\Api'], function () {
         });
     });
 
-    /** Public Api */
+});
 
-    Route::group(['prefix' => ''], function ()
+
+/** Public Api */
+Route::group(['namespace' => 'SpreadOut\Http\Controllers\PublicApi'], function () {
+
+    Route::group(['prefix' => 'public-api/v1'], function ()
     {
-
+        Route::get('cities', 'ApiController@cities');
+        Route::get('counties', 'ApiController@counties');
+        Route::get('tags', 'ApiController@tags');
+        Route::get('tickets', 'ApiController@tickets');
+        Route::get('branches', 'ApiController@branches');
+        Route::get('companies', 'ApiController@companies');
     });
 });

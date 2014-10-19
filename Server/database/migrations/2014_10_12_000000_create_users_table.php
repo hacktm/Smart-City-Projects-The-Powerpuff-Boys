@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration {
             $table->string('email', 160)->unique();
             $table->string('phone')->unique();
 			$table->string('password', 60);
+            $table->string('api_token', 65);
             $table->enum('type', ['person', 'company', 'city']);
             $table->boolean('active');
 			$table->timestamps();

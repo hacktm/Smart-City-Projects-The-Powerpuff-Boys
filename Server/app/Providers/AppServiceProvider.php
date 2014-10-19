@@ -13,6 +13,7 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	protected $middleware = [
 		'auth' => 'SpreadOut\Http\Middleware\AuthMiddleware',
+        'public-auth' => 'SpreadOut\Http\Middleware\PublicAuthMiddleware',
 		'csrf' => 'SpreadOut\Http\Middleware\CsrfMiddleware',
 		'guest' => 'SpreadOut\Http\Middleware\GuestMiddleware',
 	];
