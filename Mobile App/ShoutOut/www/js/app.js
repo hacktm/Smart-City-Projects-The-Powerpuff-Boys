@@ -45,7 +45,7 @@ angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
     })
 	
 	.state('app.category', {
-      url: "/category/:categoryId",
+      url: "/category/:categoryId/:categoryName",
       views: {
         'menuContent' :{
           templateUrl: "templates/category.html",
@@ -55,7 +55,7 @@ angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
     })
 	
 	.state('app.company', {
-      url: "/company/:companyId",
+      url: "/company/:companyId/:comapnyName",
       views: {
         'menuContent' :{
           templateUrl: "templates/company.html",
@@ -65,7 +65,7 @@ angular.module('ShoutOut', ['ionic', 'ShoutOut.controllers'])
     })
 	
 	.state('app.ticket', {
-      url: "/ticket/:ticketId",
+      url: "/ticket/:ticketId/:ticketName",
       views: {
         'menuContent' :{
           templateUrl: "templates/ticket.html",

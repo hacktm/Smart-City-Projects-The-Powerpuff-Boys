@@ -1,38 +1,41 @@
 angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, NetDB) {
-  $scope.loggedIn = true;
-  
-  // Form data for the login modal
+  if (window.localStorage["loggedIn"])
+	$scope.loggedIn = window.localStorage["loggedIn"] || false;
+  else {
+	window.localStorage["loggedIn"] = false;
+	$scope.loggedIn = false;
+  }
+  $scope.auth_action = $scope.loggedIn == true ? "Logout" : "Login";
+	
+  // Login Logic
+   
   $scope.loginData = {};
-
-  // Create the login modal that we will use later
+  
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.loginModal = modal;
   });
   
+  $scope.authBtnClick = function() {
+	if ($scope.loggedIn == true)
+		$scope.doLogout();
+	else
+		$scope.showLogin();
+  }
+  
+  $scope.showLogin = function() {
+    $scope.loginModal.show();
+  };
 
-  // Triggered in the login modal to close it
   $scope.closeLogin = function() {
-    $scope.modal.hide();
+    $scope.loginModal.hide();
   };
   
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-  
-  // Execute LogOut
-  $scope.logout = function() {
-    $scope.loggedIn = false;
-  };
-
-  // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-	console.log('User', $scope.loginData.username);
-	console.log('Pass', $scope.loginData.password);
+	window.localStorage["user"] = $scope.loginData.username;
 	
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -40,7 +43,15 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
       $scope.closeLogin();
     }, 1000);
 	
+	window.localStorage["loggedIn"] = true;
 	$scope.loggedIn = true;
+	$scope.auth_action = "Logout";
+  };
+  
+  $scope.doLogout = function() {
+	window.localStorage["loggedIn"] = false;
+    $scope.loggedIn = false;
+    $scope.auth_action = "Login";
   };
   
   // Select City Logic
@@ -59,8 +70,8 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 	
 	$scope.selectCityTitle = "Select County";
 	$scope.selectCityList = [
-		{id:1, title:"County 1"},
-		{id:2, title:"County 2"}
+		{id:1, name:"County 1"},
+		{id:2, name:"County 2"}
 	];
   };
   
@@ -75,12 +86,13 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 		$scope.countyId = itemId;
 		$scope.selectCityTitle = "Select City";
 		$scope.selectCityList = [
-			{id:1, title:"City 1"},
-			{id:2, title:"City 2"}
+			{id:1, name:"City 1"},
+			{id:2, name:"City 2"}
 		];
 	} else {
 		// A City was Selected
 		// Load City
+		window.localStorage["city"] = itemId;
 		$scope.cityId = itemId;
 		$scope.selectCityTitle = "Done!";
 		$scope.closeSelectCity();
@@ -90,39 +102,65 @@ angular.module('ShoutOut.controllers', ["ShoutOut.NetworkService"])
 
 .controller('SearchController', function($scope, $stateParams, NetDB) {
 	$scope.resuls = [];
-
+	$scope.loaded = true;
+	$scope.noItems = false;
+	
 	$scope.execute = function(query) {
-		NetDB.search(query.query, 1, function(data) { 
-			$scope.results = data;
+		$scope.loaded = false;
+		NetDB.search(query.query, window.localStorage["city"], function(data) { 
+			if  (!data || data.length == 0) {
+				$scope.noItems = true;
+			} else {
+				$scope.results = data;
+				$scope.loaded = true;
+			}
 		});
 	};
 })
 
-.controller('CategoriesController', function($scope, $stateParams) {
-	$scope.categories = [
-		{id:1, title:"Category 1"},
-		{id:2, title:"Category 2"},
-	];
+.controller('CategoriesController', function($scope, $stateParams, NetDB) {
+	$scope.categories = [];
+	$scope.loaded = false;
+	$scope.noItems = false;
+	
+	NetDB.categories(function(data) { 
+		if (!data || data.length == 0) {
+			$scope.noItems = true;
+		} else {
+			$scope.categories = data;
+			$scope.loaded = true;
+		}
+	});
 })
 
 .controller('CategoryController', function($scope, $stateParams) {
-	$scope.categoryName = "Category " + $stateParams.categoryId;
+	$scope.categoryName = $stateParams.categoryName;
+	
+	$scope.companies = [];
+	$scope.loaded = false;
+	$scope.noItems = false;
+	
 	$scope.companies = [
-		{id:1, title:"Company 1"},
-		{id:2, title:"Company 2"},
+		{id:1, name:"Company 1"},
+		{id:2, name:"Company 2"},
 	];
 })
 
 .controller('CompanyController', function($scope, $stateParams) {
-	$scope.companyName = "Company " + $stateParams.companyId;
+	$scope.companyName = $stateParams.companyName;
+	
+	$scope.tickets = [];
+	$scope.loaded = false;
+	$scope.noItems = false;
+	
 	$scope.tickets = [
-		{id:1, title:"Ticket 1"},
-		{id:2, title:"Ticket 2"},
+		{id:1, name:"Ticket 1"},
+		{id:2, name:"Ticket 2"},
 	];
 })
 
 .controller('TicketController', function($scope, $stateParams) {
-	$scope.ticketName = "Ticket " + $stateParams.ticketId;
+	$scope.ticketName = $stateParams.ticketName;
 })
 
 .controller('MyTicketsController', function($scope, $stateParams) {

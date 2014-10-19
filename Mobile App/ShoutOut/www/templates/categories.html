@@ -7,8 +7,14 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="category in categories" href="#/app/category/{{category.id}}">
-        {{category.title}}
+	  <ion-item ng-if="!loaded">
+		<p align="center"><button class="button button-icon icon ion-refreshing"></button></p>
+	  </ion-item>
+	  <ion-item ng-if="noItems">
+		<p align="center" disabled>No Results</p>
+	  </ion-item>
+      <ion-item ng-repeat="category in categories" href="#/app/category/{{category.id}}/{{category.name}}">
+        {{category.name}}
       </ion-item>
     </ion-list>
   </ion-content>
