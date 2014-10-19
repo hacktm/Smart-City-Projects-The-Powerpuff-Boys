@@ -1,8 +1,8 @@
 <?php namespace SpreadOut\Http\Requests\Auth;
 
-use Illuminate\Foundation\Http\FormRequest;
+use SpreadOut\Http\Requests\BaseFormRequest;
 
-class PersonLoginRequest extends FormRequest {
+class PersonLoginRequest extends BaseFormRequest {
 
 	/**
 	 * Get the validation rules that apply to the request.
