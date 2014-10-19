@@ -1,4 +1,4 @@
-<?php namespace SpreadOut\Http\Requests\Auth;
+<?php namespace SpreadOut\Http\Requests;
 
 use SpreadOut\Http\Requests\BaseFormRequest;
 
@@ -12,7 +12,7 @@ class BranchRequest extends BaseFormRequest {
 	public function rules()
 	{
 		return [
-			'branch_id'   => 'numeric',
+			'branch'   => 'numeric',
             'type'        => 'required',
             'title'       => 'required',
             'description' => 'required'
