@@ -1,0 +1,29 @@
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-offset-12">
+            <div class="logo"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-offset-12">
+            <form name="loginForm" novalidate ng-submit="login()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="User ID" ng-model="data.loginName" ng-change="changeValidity()" bm-input-sync>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="data.password" ng-change="changeValidity()" bm-input-sync>
+                </div>
+                <div class="form-group" ng-show="invalidCredentials">
+                    <p class="fdc-form-error">Invalid username/password</p>
+                </div>
+                <div class="form-group forgot-password text-center">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-default">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

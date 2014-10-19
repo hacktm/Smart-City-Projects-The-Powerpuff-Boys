@@ -87,6 +87,8 @@ module.exports = function (grunt) {
                     "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
                     "bower_components/commons/bmComponents.js",
                     "bower_components/momentjs/min/moment-with-langs.min.js",
+                    "bower_components/bootstrap-select/dist/js/bootstrap-select.js",
+                    "bower_components/angular-bootstrap-select/build/angular-bootstrap-select.min.js",
                     "lib/angular-l10n/l10n-with-tools.min.js"
                 ],
                 dest: 'js/<%= pkg.name %>.libs.js'

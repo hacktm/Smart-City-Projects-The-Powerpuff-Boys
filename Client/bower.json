@@ -25,6 +25,8 @@
     "es5-shim": "latest",
     "json3": "latest",
     "momentjs": "~2.5",
+    "bootstrap-select": "1.6.3",
+    "angular-bootstrap-select": "0.0.3",
     "commons": "git@github.com:bizimasins/commons.git"
   }
 }

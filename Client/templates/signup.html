@@ -1,0 +1,40 @@
+<div class="spr-wide-section spr-bg-ppl">
+    <div class="container spr-main-container">
+        <div class="row">
+           <div class="col-lg-6 col-lg-offset-3">
+               <div class="panel panel-default">
+
+                   <div class="panel-body">
+                       <h3>Sign up</h3>
+                       <form role="form">
+                           <div class="form-group">
+                               <label for="firstName">First name</label>
+                               <input type="text" class="form-control" id="firstName" placeholder="Your first name" ng-model="newUser.firstname">
+                           </div>
+                           <div class="form-group">
+                               <label for="lastName">Last name</label>
+                               <input type="text" class="form-control" id="lastName" placeholder="Your first name" ng-model="newUser.lastname">
+                           </div>
+                           <div class="form-group">
+                               <label for="exampleInputEmail1">Email address</label>
+                               <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="newUser.email">
+                           </div>
+                           <div class="form-group">
+                               <label for="exampleInputPassword1">Password</label>
+                               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="newUser.password">
+                           </div>
+                           <div class="form-group">
+                               <label for="lastName">Phone number</label>
+                               <input type="text" class="form-control" id="phone" placeholder="Your first name" ng-model="newUser.phone">
+                           </div>
+                           <button type="submit" class="btn btn-default" ng-click="register()">Register</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+
+        </div>
+
+    </div>
+</div>
+
