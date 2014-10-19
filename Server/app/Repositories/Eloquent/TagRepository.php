@@ -28,12 +28,20 @@ class TagRepository extends AbstractRepository implements TagContract {
     /**
      * Get branches by name
      *
+     * @todo: Refactor the method
+     *
      * @param array $data
      * @return bool|mixed
      */
     public function search(array $data)
     {
-        $find = $this->model->with('companies');
+        $find = $this->model->with(array('companies' => function ($query) use ($data)
+        {
+            if (isset($data['city']))
+            {
+                $query->where('city_id', $data['city']);
+            }
+        }));
 
         if (isset($data['id']))
         {

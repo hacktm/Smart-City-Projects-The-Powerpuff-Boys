@@ -29,3 +29,8 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'SpreadOut\Http\Controllers\A
         Route::get('tag', 'SearchController@tag');
     });
 });
+
+DB::listen(function($sql, $bindings, $time)
+{
+    var_dump($sql);
+});
