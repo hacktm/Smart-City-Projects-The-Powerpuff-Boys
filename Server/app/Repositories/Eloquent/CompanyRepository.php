@@ -49,6 +49,11 @@ class CompanyRepository extends AbstractRepository implements CompanyContract {
             $find = $find->where('id', $data['id']);
         }
 
+        if (isset($data['cui']))
+        {
+            $find = $find->where('cui', $data['cui']);
+        }
+
         if (isset($data['name']))
         {
             $find = $find->where('name', 'LIKE', '%'.$data['name'].'%');

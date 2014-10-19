@@ -13,7 +13,7 @@ class CompanyTableSeeder extends Seeder {
      * @var array
      */
     protected $companies = [
-        'Politie', 'Pompieri', 'Primarie', 'Spiru Haret'
+        'Primaria', 'Politia'
     ];
 
     /**
