@@ -77,7 +77,7 @@ class CompanyTableSeeder extends Seeder {
                 $this->createBranch($company, $city);
                 $this->attachTag($company);
 
-                echo ! $company ?: sprintf('%s was created !%s', $company['name'], PHP_EOL);
+                echo ! $company ?: sprintf('Company %s was created !%s', $company['name'], PHP_EOL);
 
                 $i++;
             }
