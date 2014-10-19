@@ -11,8 +11,8 @@
 	  <ion-item ng-if="noItems">
 		<p align="center" disabled>No Results</p>
 	  </ion-item>
-      <ion-item ng-repeat="ticket in tickets" href="#/app/ticket/{{ticket.id}}/{{ticket.Name}}">
-        {{ticket.name}}
+      <ion-item ng-repeat="ticket in tickets" href="#/app/ticket/{{ticket.id}}/{{ticket.name}}">
+        {{ticket.title}}
       </ion-item>
     </ion-list>
   </ion-content>
