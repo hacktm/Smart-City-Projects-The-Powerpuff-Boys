@@ -17,12 +17,25 @@ class TagRepository extends AbstractRepository implements TagContract {
      * Create tags
      *
      * @param array $data
+     * @return mixed
      */
     public function create(array $data)
     {
         $tag = $this->getNew();
         $tag->name = $data['name'];
         $tag->save();
+
+        return $this->toArray($tag);
+    }
+
+    /**
+     * Get all the tags
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|mixed|static[]
+     */
+    public function all()
+    {
+        return $this->toArray($this->model->all());
     }
 
     /**
