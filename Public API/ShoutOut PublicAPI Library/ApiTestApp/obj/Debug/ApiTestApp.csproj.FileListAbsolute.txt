@@ -28,3 +28,6 @@ C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\S
 C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\crisdorya1994\Desktop\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.csprojResolveAssemblyReference.cache
+C:\Users\crisdorya1994\Documents\GitHub\Smart-City-Projects-The-Powerpuff-Boys\Public API\ShoutOut PublicAPI Library\ApiTestApp\bin\Debug\ApiTestApp.exe.config
+C:\Users\crisdorya1994\Documents\GitHub\Smart-City-Projects-The-Powerpuff-Boys\Public API\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.exe
+C:\Users\crisdorya1994\Documents\GitHub\Smart-City-Projects-The-Powerpuff-Boys\Public API\ShoutOut PublicAPI Library\ApiTestApp\obj\Debug\ApiTestApp.pdb
