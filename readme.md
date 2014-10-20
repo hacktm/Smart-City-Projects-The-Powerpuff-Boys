@@ -16,12 +16,30 @@ Server-ul este scris in PHP folosind popularul Framework Laravel versiunea 5. Ba
 
 Frontend Solution
 -----------------
+Acest serviciu poate fi accesat de utilizatori (cetateni) prin intermediul unei aplicatii web.
+
+Acest portal permite inrolarea fiecarui utilizator in sistem, ulterior permitandu-i sa participe la construirea imaginii unei firme prin sugestii si reclamatii.
+
+Aplicatia are un aspect foarte prietenos si intuitiv, utilizatorul fiind nevoit sa urmeze un numar mic de click-uri pentru a ajunge la informatia pe care o doreste. Mentionam faptul ca sunt folosite fisiere de limba, astfel ca oricand se pot adauga traduceri multiple pentru ca website-ul sa fie utilizat oriunde in lume.
+
+Pentru realizarea aplicatiei web s-a folosit HTML, CSS, si JavaScript, utilizand cateva librarii cunoscute: Twitter Bootstrap, AngularJS, Bower.
 
 
+Utilizare
+---------------
+Sa ne imaginam urmatorul scenariu:
 
-SpreadOut Frontend utilizeaza _Fisiere de Limba_ ceea ce faciliteaza utilizarea aplicatiei de catre turisti, spre exemplu, cat si portarea aplicatiei pentru orase in afra Romaniei.
+Intr-o zi ma aflu in incinta unui punct de lucru al companiei X pentru a-mi rezolva o problema referitoare la serviciile oferite de ei, servicii la care sunt abonat, servicii pentru care platesc. Mersul unei companie implica multi factori precum: igiena, personalul / angajatii, calitate servicii sau produse, timp, conditii… lucruri de care, la un moment dat, poate ma nemultumesc, iar conditiile din prezent nu ne permit sa ne manifestam aceste nemultumiri prea usor. De multe ori e necesar sa apelezi la serviciul de reclamatii, unde probabil personalul lipseste (e intr-o lunga pauza de masa), de multe ori probleme se rezolva prin simpla inregistrare a unei cereri/plangeri, urmata de “Vom citi si ne vom stradui”.
 
-Frontend-ul este scris utilizand HTML5 impreuna cu Framework-ul AngularJS.
+Aici intervine aplicatia noastra!
+
+Cat de simplu ar fi, ca utilizatorii sa poata sa publice aceste probleme online?! Ar fi foarte interesant sa vedem cum probabil si alti cetateni se gasesc in aceeasi situatie, si vor sa-si exprime nemultumirea, dar nu au timp si nervi pentru a incepe demersul unei plangeri. In ziua de astazi, online e mai simplu!
+Totodata, aceste reclamatii si sugestii, vor crea o “imagine virtuala” a companiei, astfel ca, cei aflati in cauza vor fi motivati sa-si corecteze partile negative.
+
+Utilizatorii obisnuiti vor putea accesa portalul nostru, vor putea selecta compania dorita, iar apoi pot sa-si exprime o nemultumire, o sugestie sau chiar sa poarte scurte discutii (chiar si de apreciere).
+
+Cererile, plangerile si reclamatiile sunt organizate intr-un sistem de “ticketing”, asadar vor ajunge in atentia companiei. Compania poate gestiona toate acestea si le poate prezenta foarte frumos printr-o reprezentare de tipul Agile Board (planuri de viitor, lucruri care trebuiesc facute, lucrurile la care lucram in momentul de fata si lucruri care au fost finalizate). In acest fel speram sa avem un oras mai organizat, sa devenim o tara mai buna.
+
 
 
 Mobile Solution
