@@ -38,7 +38,10 @@ Noi credem in initiativa Datelor Deschise, in acest scop, SpreadOut include un R
 
 Pentru dezvoltatori este mult mai simplu insa sa foloseasca o Librarie. Din acest motiv API-ul Publkic este disponibil si in format _Microsoft Portable Library_ compatibila cu:
 <ul>
-  <li> </li>
-  <li> </li>
+  <li>.NET 4+</li>
+  <li>Windows 8+</li>
+  <li>Windows Phone 8+</li>
+  <li>Silverlight 5</li>
+  <li>etc.</li>
 </ul>
-.NET 4+ pe platfomele Windows 8+, Windows Phone 8+, Silverlight 5, etc.
+Aceasta este doar in inceput insa, noi dorim sa oferim o astfel de Librarie pentru cat mai multe limbaje de programare!
