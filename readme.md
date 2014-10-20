@@ -6,19 +6,22 @@ Noi credem in initiativa Datelor Deschise: SpreadOut ofera si un API Public, fac
 
 Acest proiect a fost dezvoltat la HackTM in Timisoara (17-19 Octombrie) unde a fost bine acceptat.
 
+
 Server Solution
 ---------------
 
-Orice aplicatie SmartCity trebuie sa fie capabila sa_reziste!
+Orice aplicatie SmartCity trebuie sa fie capabila _sa reziste_!
 SpreadOut Server este gandit in acest scop, fiind capabil sa serveasca un numar mare de requesturi. Baza de Date este special planificata spre a executa query-uri rapide, atat pentru Frontend cat si pentru API-ul Public.
 
 Server-ul este scris in PHP folosind popularul Framework Laravel versiunea 5. Baza de Date foloseste MySQL.
 
+
 Frontend Solution
 -----------------
+
 Acest serviciu poate fi accesat de utilizatori (cetateni) prin intermediul unei aplicatii web.
 
-Acest portal permite inrolarea fiecarui utilizator in sistem, ulterior permitandu-i sa participe la construirea imaginii unei firme prin sugestii si reclamatii.
+Portalul Web permite inrolarea fiecarui utilizator in sistem, ulterior permitandu-i sa participe la construirea imaginii unei firme prin sugestii si reclamatii.
 
 Aplicatia are un aspect foarte prietenos si intuitiv, utilizatorul fiind nevoit sa urmeze un numar mic de click-uri pentru a ajunge la informatia pe care o doreste. Mentionam faptul ca sunt folosite fisiere de limba, astfel ca oricand se pot adauga traduceri multiple pentru ca website-ul sa fie utilizat oriunde in lume.
 
@@ -39,7 +42,6 @@ Totodata, aceste reclamatii si sugestii, vor crea o “imagine virtuala” a com
 Utilizatorii obisnuiti vor putea accesa portalul nostru, vor putea selecta compania dorita, iar apoi pot sa-si exprime o nemultumire, o sugestie sau chiar sa poarte scurte discutii (chiar si de apreciere).
 
 Cererile, plangerile si reclamatiile sunt organizate intr-un sistem de “ticketing”, asadar vor ajunge in atentia companiei. Compania poate gestiona toate acestea si le poate prezenta foarte frumos printr-o reprezentare de tipul Agile Board (planuri de viitor, lucruri care trebuiesc facute, lucrurile la care lucram in momentul de fata si lucruri care au fost finalizate). In acest fel speram sa avem un oras mai organizat, sa devenim o tara mai buna.
-
 
 
 Mobile Solution
