@@ -17,7 +17,7 @@ Server-ul este scris in PHP folosind popularul Framework Laravel versiunea 5. Ba
 Frontend Solution
 -----------------
 
-Poratlul prin care utilizatorul foloseste
+
 
 SpreadOut Frontend utilizeaza _Fisiere de Limba_ ceea ce faciliteaza utilizarea aplicatiei de catre turisti, spre exemplu, cat si portarea aplicatiei pentru orase in afra Romaniei.
 
@@ -27,8 +27,10 @@ Frontend-ul este scris utilizand HTML5 impreuna cu Framework-ul AngularJS.
 Mobile Solution
 ---------------
 
-Pentru cei 
+Toti suntem din ce in ce mai mobili. SpreadOut Mobile este gandit pentru cei care sunt tot timpul in miscare.
+Aceasta eleganta aplicatie Cross-Platform (Android, iOS, Windows Phone, etc.) permite utilizatorului sa Vizualizeze si sa Posteze plangeri dar si propuneri direct de oe Telefon sau Tableta!
 
+SpreadOut Mobile utilizeaza ca baza PhoneGap 3.5 impreuna cu Framework-urile Angular JS si Ionic 1.0.
 
 
 Public API
@@ -36,7 +38,7 @@ Public API
 
 Noi credem in initiativa Datelor Deschise, in acest scop, SpreadOut include un RESTful API Public care permite accesarea Datelor noastre de catre developeri dornici de a crea aplicatii pentru un oras al viitorului.
 
-Pentru dezvoltatori este mult mai simplu insa sa foloseasca o Librarie. Din acest motiv API-ul Publkic este disponibil si in format _Microsoft Portable Library_ compatibila cu:
+Pentru dezvoltatori este mult mai simplu insa sa foloseasca o Librarie. Din acest motiv API-ul Publkic este disponibil si in format _Microsoft Portable Library_ pentru libajele C# si VB.NET compatibila cu:
 <ul>
   <li>.NET 4+</li>
   <li>Windows 8+</li>
