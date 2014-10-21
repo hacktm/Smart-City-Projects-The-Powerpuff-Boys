@@ -13,7 +13,9 @@ Server Solution
 Orice aplicatie SmartCity trebuie sa fie capabila _sa reziste_!
 SpreadOut Server este gandit in acest scop, fiind capabil sa serveasca un numar mare de requesturi. Baza de Date este special planificata spre a executa query-uri rapide, atat pentru Frontend cat si pentru API-ul Public.
 
-Server-ul este scris in PHP folosind popularul Framework Laravel versiunea 5. Baza de Date foloseste MySQL.
+Server-ul este scris in PHP 5.4+ folosind popularul framework Laravel 5. Ca baza de date am folosit MySQL. Totusi platforma suporta si urmatoarele baze de date, fara a schimba vreo portiune de cod: Postgres, SQL Server, SQLite.
+
+Codul serverului este scris astfel incat se se realizeze foarte usor modificari pe viitor, evitand costuri mari de dezvoltare.
 
 
 Frontend Solution
@@ -58,7 +60,7 @@ Public API
 
 Noi credem in initiativa Datelor Deschise, in acest scop, SpreadOut include un RESTful API Public care permite accesarea Datelor noastre de catre developeri dornici de a crea aplicatii pentru un oras al viitorului.
 
-Pentru dezvoltatori este mult mai simplu insa sa foloseasca o Librarie. Din acest motiv API-ul Publkic este disponibil si in format _Microsoft Portable Library_ pentru libajele C# si VB.NET compatibila cu:
+Pentru dezvoltatori este mult mai simplu insa sa foloseasca o Librarie. Din acest motiv API-ul Public este disponibil si in format _Microsoft Portable Library_ pentru libajele C# si VB.NET compatibila cu:
 <ul>
   <li>.NET 4+</li>
   <li>Windows 8+</li>
@@ -66,4 +68,4 @@ Pentru dezvoltatori este mult mai simplu insa sa foloseasca o Librarie. Din aces
   <li>Silverlight 5</li>
   <li>etc.</li>
 </ul>
-Aceasta este doar in inceput insa, noi dorim sa oferim o astfel de Librarie pentru cat mai multe limbaje de programare!
+Aceasta este doar un inceput insa, noi dorim sa oferim o astfel de Librarie pentru cat mai multe limbaje de programare !
